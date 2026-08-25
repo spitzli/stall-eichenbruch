@@ -283,7 +283,7 @@ async function seed(payload: Payload) {
               '## Angaben gemäß § 5 DDG',
               'Stall Eichenbruch\nPensions- und Ausbildungsstall\nCora und Günter Mann\nEmsoldstraße 40\n26180 Rastede-Hankhausen',
               '## Kontakt',
-              'Telefon: [04402 5956004](tel:044025956004)\nMobil: [0173 3138662](tel:01733138662)\nE-Mail: [post@stall-eichenbruch.eu](mailto:post@stall-eichenbruch.eu)',
+              'Telefon: [04402 5956004](tel:044025956004)\nMobil: [01522 8461729](tel:015228461729)\nE-Mail: [post@stall-eichenbruch.eu](mailto:post@stall-eichenbruch.eu)',
               '## Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV',
               'Cora und Günter Mann\nAnschrift wie oben',
             ),
@@ -373,7 +373,7 @@ async function seed(payload: Payload) {
       street: 'Emsoldstraße 40',
       city: '26180 Rastede-Hankhausen',
       phone: '04402 5956004',
-      mobile: '0173 3138662',
+      mobile: '01522 8461729',
       email: 'post@stall-eichenbruch.eu',
       mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Emsoldstra%C3%9Fe+40+26180+Rastede',
       description:
