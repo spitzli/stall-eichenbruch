@@ -9,9 +9,11 @@ import { SpeedInsights } from '@vercel/speed-insights/next'
 import { AdminBar } from '@/components/AdminBar'
 import { Footer } from '@/Footer/Component'
 import { Header } from '@/Header/Component'
+import { Maintenance } from '@/components/Maintenance'
 import { MobileBar } from '@/components/MobileBar'
 import { getCachedGlobal } from '@/utilities/getGlobals'
 import { openingHoursSpecification } from '@/utilities/hours'
+import { maintenanceState } from '@/utilities/maintenance'
 import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
 import { SITE_DESCRIPTION, SITE_NAME } from '@/utilities/site'
 import { draftMode } from 'next/headers'
@@ -24,6 +26,7 @@ const sans = Albert_Sans({ subsets: ['latin'], variable: '--font-albert-sans' })
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const [{ isEnabled }, siteInfo] = await Promise.all([draftMode(), getCachedGlobal('site-info')()])
+  const maintenance = await maintenanceState(siteInfo)
 
   const url = getServerSideURL()
   const [postalCode, ...locality] = (siteInfo?.city || '').split(' ')
@@ -77,11 +80,17 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         />
       </head>
       <body>
-        <AdminBar adminBarProps={{ preview: isEnabled }} />
-        <Header />
-        {children}
-        <Footer />
-        <MobileBar />
+        {maintenance === 'on' ? (
+          <Maintenance siteInfo={siteInfo} />
+        ) : (
+          <>
+            <AdminBar adminBarProps={{ preview: isEnabled }} />
+            <Header />
+            {children}
+            <Footer />
+            <MobileBar />
+          </>
+        )}
         <Analytics />
         <SpeedInsights />
       </body>

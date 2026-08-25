@@ -6,7 +6,6 @@ import { getPayload } from 'payload'
 import { draftMode } from 'next/headers'
 import React, { cache } from 'react'
 
-import { ContactLines } from '@/components/ContactLines'
 import { getCachedGlobal } from '@/utilities/getGlobals'
 import { maintenanceState } from '@/utilities/maintenance'
 import { RenderBlocks } from '@/blocks/RenderBlocks'
@@ -47,25 +46,9 @@ export default async function Page({ params: paramsPromise }: Args) {
     getCachedGlobal('site-info')(),
   ])
 
-  // maintenance mode: public visitors see a notice; draft mode or the preview-key cookie shows the site
+  // maintenance 'on' is rendered by the root layout (no header/footer); here we only add the preview hint
   const maintenance = await maintenanceState(siteInfo)
-  if (maintenance === 'on') {
-    return (
-      <main className="container pt-6 pb-24 md:pt-16">
-        <div className="max-w-3xl">
-          <h1 className="text-[2.5rem] leading-[1.02] sm:text-6xl">{siteInfo.maintenance?.title}</h1>
-          {siteInfo.maintenance?.text && (
-            <p className="mt-6 text-lg md:text-xl text-muted-foreground leading-relaxed whitespace-pre-line">
-              {siteInfo.maintenance?.text}
-            </p>
-          )}
-        </div>
-        <div className="mt-10 plate max-w-md text-lg leading-relaxed">
-          <ContactLines siteInfo={siteInfo} />
-        </div>
-      </main>
-    )
-  }
+  if (maintenance === 'on') return null
 
   if (!page) {
     return <PayloadRedirects url={url} />
