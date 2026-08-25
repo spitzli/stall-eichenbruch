@@ -2,6 +2,7 @@ import Link from 'next/link'
 import React from 'react'
 
 import { CMSLink } from '@/components/Link'
+import { MobileMenu } from './MobileMenu'
 import { getCachedGlobal } from '@/utilities/getGlobals'
 
 export async function Header() {
@@ -29,32 +30,25 @@ export async function Header() {
           ))}
         </nav>
 
-        {/* ponytail: native <details> menu – no JS, no state; panel spans the full width below the header */}
         {navItems.length > 0 && (
-          <details className="md:hidden group">
-            <summary className="list-none cursor-pointer select-none rounded-full border border-border px-4 py-2.5 text-sm bg-card [&::-webkit-details-marker]:hidden group-open:bg-foreground group-open:text-background">
-              <span className="group-open:hidden">Menü</span>
-              <span className="hidden group-open:inline">Schliessen</span>
-            </summary>
-            <nav className="absolute left-5 right-5 top-full z-30 plate p-2 md:p-2 flex flex-col divide-y divide-border">
-              {navItems.map(({ link }, i) => (
-                <CMSLink
-                  key={i}
-                  {...link}
-                  appearance="inline"
-                  className="font-display text-2xl px-4 py-4 rounded-xl hover:bg-background"
-                />
-              ))}
-              {siteInfo?.phone && (
-                <a
-                  className="px-4 py-4 text-muted-foreground"
-                  href={`tel:${siteInfo.phone.replace(/[\s\-/]/g, '')}`}
-                >
-                  Anrufen: {siteInfo.phone}
-                </a>
-              )}
-            </nav>
-          </details>
+          <MobileMenu>
+            {navItems.map(({ link }, i) => (
+              <CMSLink
+                key={i}
+                {...link}
+                appearance="inline"
+                className="font-display text-2xl px-4 py-4 rounded-xl hover:bg-background"
+              />
+            ))}
+            {siteInfo?.phone && (
+              <a
+                className="px-4 py-4 text-muted-foreground"
+                href={`tel:${siteInfo.phone.replace(/[\s\-/]/g, '')}`}
+              >
+                Anrufen: {siteInfo.phone}
+              </a>
+            )}
+          </MobileMenu>
         )}
       </div>
     </header>
