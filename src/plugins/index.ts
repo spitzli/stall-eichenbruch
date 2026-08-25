@@ -71,6 +71,19 @@ export const plugins: Plugin[] = [
       state: false,
       country: false,
     },
+    // notification mails without an explicit recipient go to the address in the site-info global
+    beforeEmail: async (emails, { data, req }) => {
+      const formId = typeof data.form === 'object' ? data.form.id : data.form
+      const [siteInfo, form] = await Promise.all([
+        req.payload.findGlobal({ slug: 'site-info', depth: 0, req }),
+        req.payload.findByID({ collection: 'forms', id: formId, depth: 0, req }),
+      ])
+      if (!siteInfo.email) return emails
+      // emails[i] corresponds to form.emails[i]; only entries without their own recipient are redirected
+      return emails.map((email, i) =>
+        form.emails?.[i]?.emailTo ? email : { ...email, to: siteInfo.email! },
+      )
+    },
     formOverrides: {
       fields: ({ defaultFields }) => {
         return defaultFields.map((field) => {

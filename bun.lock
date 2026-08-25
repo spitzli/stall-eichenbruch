@@ -7,6 +7,7 @@
       "dependencies": {
         "@payloadcms/admin-bar": "3.88.0",
         "@payloadcms/db-vercel-postgres": "3.88.0",
+        "@payloadcms/email-nodemailer": "3.88.0",
         "@payloadcms/live-preview-react": "3.88.0",
         "@payloadcms/next": "3.88.0",
         "@payloadcms/plugin-form-builder": "3.88.0",
@@ -29,6 +30,7 @@
         "lucide-react": "0.563.0",
         "next": "16.3.0",
         "next-sitemap": "^4.2.3",
+        "nodemailer": "^9.0.5",
         "payload": "3.88.0",
         "react": "19.2.6",
         "react-dom": "19.2.6",
@@ -430,6 +432,8 @@
     "@payloadcms/db-vercel-postgres": ["@payloadcms/db-vercel-postgres@3.88.0", "", { "dependencies": { "@payloadcms/drizzle": "3.88.0", "@vercel/postgres": "^0.10.0", "console-table-printer": "2.12.1", "drizzle-kit": "0.31.7", "drizzle-orm": "0.45.2", "pg": "8.20.0", "prompts": "2.4.2", "to-snake-case": "1.0.0", "uuid": "13.0.2" }, "peerDependencies": { "payload": "3.88.0" } }, "sha512-wRZ+Hm0Er3vUqOsRcLgJQpsSNo5iQql3/m3bV+gShh13d+aaasgL4sknR7UbMmLcR95iWXV8MtWsKHgAwwG8xQ=="],
 
     "@payloadcms/drizzle": ["@payloadcms/drizzle@3.88.0", "", { "dependencies": { "console-table-printer": "2.12.1", "dequal": "2.0.3", "drizzle-orm": "0.45.2", "prompts": "2.4.2", "to-snake-case": "1.0.0", "uuid": "13.0.2" }, "peerDependencies": { "payload": "3.88.0" } }, "sha512-qtPVSLjAFnQl1GwaQPhmnYTwCCWgTnRm4ps5yJxmN3RPdLF6S77gvqZMnC4HTeH7YADQJW3nFgQCVYExxWE6hA=="],
+
+    "@payloadcms/email-nodemailer": ["@payloadcms/email-nodemailer@3.88.0", "", { "dependencies": { "nodemailer": "^9.0.1" }, "peerDependencies": { "payload": "3.88.0" } }, "sha512-cW8SUYpdVXdZBpa539smI5P2lYdTB3944rfAipv/TVG9VND0u/DDwtRuqBqGf/0eh5OajqWC0X9igMXU67dhbg=="],
 
     "@payloadcms/graphql": ["@payloadcms/graphql@3.88.0", "", { "dependencies": { "graphql-scalars": "1.22.2", "pluralize": "8.0.0", "ts-essentials": "10.0.3", "tsx": "4.22.4" }, "peerDependencies": { "graphql": "^16.8.1", "payload": "3.88.0" }, "bin": { "payload-graphql": "bin.js" } }, "sha512-ync+bPFl0UacwBs1wVQkPlaSWWQJc4LjGG9OuRHEW7wYW3aeVQ+H2zfdFL6/cVJGP3zOq+XIlvYYw8G86Ki+Vw=="],
 
@@ -1466,6 +1470,8 @@
     "node-gyp-build": ["node-gyp-build@4.8.4", "", { "bin": { "node-gyp-build": "bin.js", "node-gyp-build-optional": "optional.js", "node-gyp-build-test": "build-test.js" } }, "sha512-LA4ZjwlnUblHVgq0oBF3Jl/6h/Nvs5fzBLwdEF4nuxnFdsfajde4WfxtJr3CaiH+F6ewcIB/q4jQ4UzPyid+CQ=="],
 
     "node-releases": ["node-releases@2.0.53", "", {}, "sha512-D9UOmYG3UH1V+ENW56t5QXBwJw1YEY18ruVeus89Rw+SyIgjPkCO84bRzO3uNIYosJbNwiabWVn48o3uJLjxFQ=="],
+
+    "nodemailer": ["nodemailer@9.0.5", "", {}, "sha512-wvjiKvjczmsN7U/8006JOdXubgBk2XFAbioDMbT+sM7cPs0QrhJTa6KBRX7P5REGGkDcLUz/EarWidb8G8C1jQ=="],
 
     "normalize-path": ["normalize-path@3.0.0", "", {}, "sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA=="],
 

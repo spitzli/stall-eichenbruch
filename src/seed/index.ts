@@ -102,9 +102,9 @@ async function seed(payload: Payload) {
   if ((await payload.count({ collection: 'users' })).totalDocs === 0) {
     await payload.create({
       collection: 'users',
-      data: { name: 'Admin', email: 'admin@stall-eichenbruch.eu', password: 'password' },
+      data: { name: 'Admin', email: 'admin@stall-eichenbruch.de', password: 'password' },
     })
-    payload.logger.info('Created user admin@stall-eichenbruch.eu / password')
+    payload.logger.info('Created user admin@stall-eichenbruch.de / password')
   }
 
   payload.logger.info('Uploading images…')
@@ -129,6 +129,14 @@ async function seed(payload: Payload) {
       submitButtonLabel: 'Nachricht senden',
       confirmationType: 'message',
       confirmationMessage: richText('Vielen Dank für Ihre Nachricht. Wir melden uns so schnell wie möglich.'),
+      // recipient left empty → beforeEmail in plugins/index.ts fills in the site-info e-mail
+      emails: [
+        {
+          replyTo: '{{email}}',
+          subject: 'Neue Anfrage über die Website: {{name}}',
+          message: richText('Name: {{name}}\nE-Mail: {{email}}\nTelefon: {{telefon}}', '{{nachricht}}'),
+        },
+      ],
       fields: [
         { blockType: 'text', name: 'name', label: 'Name', required: true, width: 100 },
         { blockType: 'email', name: 'email', label: 'E-Mail', required: true, width: 50 },
@@ -283,7 +291,7 @@ async function seed(payload: Payload) {
               '## Angaben gemäß § 5 DDG',
               'Stall Eichenbruch\nPensions- und Ausbildungsstall\nCora und Günter Mann\nEmsoldstraße 40\n26180 Rastede-Hankhausen',
               '## Kontakt',
-              'Telefon: [04402 5956004](tel:044025956004)\nMobil: [01522 8461729](tel:015228461729)\nE-Mail: [post@stall-eichenbruch.eu](mailto:post@stall-eichenbruch.eu)',
+              'Telefon: [04402 5956004](tel:044025956004)\nMobil: [01522 8461729](tel:015228461729)\nE-Mail: [post@stall-eichenbruch.de](mailto:post@stall-eichenbruch.de)',
               '## Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV',
               'Cora und Günter Mann\nAnschrift wie oben',
             ),
@@ -314,7 +322,7 @@ async function seed(payload: Payload) {
       {
         blockType: 'content',
         columns: [
-          { size: 'twoThirds', richText: richText('## Verantwortliche Stelle', 'Stall Eichenbruch, Cora und Günter Mann, Emsoldstraße 40, 26180 Rastede-Hankhausen, post@stall-eichenbruch.eu.', '## Kontaktformular', 'Wenn Sie uns über das Kontaktformular schreiben, speichern wir Ihre Angaben zur Bearbeitung der Anfrage. Die Daten werden nicht an Dritte weitergegeben und nach Erledigung gelöscht.', '## Hosting', 'Diese Website wird bei Vercel gehostet. Beim Aufruf werden technisch notwendige Daten (z. B. IP-Adresse, Zeitpunkt, aufgerufene Seite) in Server-Logs verarbeitet.', '## Ihre Rechte', 'Sie haben das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung Ihrer Daten. Wenden Sie sich dazu an die oben genannte Adresse.') },
+          { size: 'twoThirds', richText: richText('## Verantwortliche Stelle', 'Stall Eichenbruch, Cora und Günter Mann, Emsoldstraße 40, 26180 Rastede-Hankhausen, post@stall-eichenbruch.de.', '## Kontaktformular', 'Wenn Sie uns über das Kontaktformular schreiben, speichern wir Ihre Angaben zur Bearbeitung der Anfrage. Die Daten werden nicht an Dritte weitergegeben und nach Erledigung gelöscht.', '## Hosting', 'Diese Website wird bei Vercel gehostet. Beim Aufruf werden technisch notwendige Daten (z. B. IP-Adresse, Zeitpunkt, aufgerufene Seite) in Server-Logs verarbeitet.', '## Ihre Rechte', 'Sie haben das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung Ihrer Daten. Wenden Sie sich dazu an die oben genannte Adresse.') },
         ],
       },
     ],
@@ -374,7 +382,7 @@ async function seed(payload: Payload) {
       city: '26180 Rastede-Hankhausen',
       phone: '04402 5956004',
       mobile: '01522 8461729',
-      email: 'post@stall-eichenbruch.eu',
+      email: 'post@stall-eichenbruch.de',
       mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Emsoldstra%C3%9Fe+40+26180+Rastede',
       description:
         'Pensions- und Ausbildungsstall in Rastede-Hankhausen bei Oldenburg: 40 Boxen, 15 mit Paddock, Reithalle 45 × 25 m, Reitunterricht bis Klasse S, Beritt, Korrektur und Verkauf.',

@@ -8,7 +8,7 @@ Website of Stall Eichenbruch, built on [Payload CMS](https://payloadcms.com) 3 +
 cp .env.example .env   # fill in POSTGRES_URL and PAYLOAD_SECRET
 bun install
 bun run dev            # http://localhost:3000, admin at /admin
-bun run seed           # content + admin user (admin@stall-eichenbruch.eu / password). Destructive.
+bun run seed           # content + admin user (admin@stall-eichenbruch.de / password). Destructive.
                        # Globals are cached by the running dev server – restart it after seeding.
 ```
 
@@ -19,6 +19,10 @@ After changing collections, blocks or globals: `bun run generate:types`.
 Vercel project `spitzli/stall-eichenbruch`, auto-deploys from GitHub `main` (production) and PR branches (preview). Env: `POSTGRES_URL` (Neon integration), `BLOB_READ_WRITE_TOKEN` (Blob store `stall-eichenbruch-media`), `PAYLOAD_SECRET`, `PREVIEW_SECRET`, `CRON_SECRET`. `NEXT_PUBLIC_SERVER_URL` is optional – the production domain comes from `VERCEL_PROJECT_PRODUCTION_URL`. Pull env locally with `bunx vercel env pull`.
 
 Schema changes: Payload pushes the schema in dev only. Run `bun run dev` (or the seed) against the database once before deploying a change to collections/globals, or add migrations.
+
+## Forms and e-mail
+
+The contact form comes from the form-builder plugin: submissions are stored under «Form Submissions» in the admin and, when the form has an entry under «Emails», sent by mail. A recipient left empty resolves to the e-mail address in the site-info global (`beforeEmail` in `src/plugins/index.ts`). Mail goes out through SMTP (`SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`, `EMAIL_FROM`); without `SMTP_HOST` Payload only logs the mail. The same adapter handles admin password resets.
 
 ## Maintenance mode
 
