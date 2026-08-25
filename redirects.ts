@@ -7,7 +7,7 @@ import { getServerSideURL } from './src/utilities/getURL'
  * Editors can add more under Admin → Redirects (those need a rebuild).
  */
 export const redirects: NextConfig['redirects'] = async () => {
-  // canonical site URL: NEXT_PUBLIC_SERVER_URL, falling back to the Vercel production domain
+  // canonical site URL: SITE_URL, falling back to the Vercel production domain
   const site = new URL(getServerSideURL())
   const canonicalHost =
     process.env.VERCEL_ENV === 'production' && site.hostname !== 'localhost' ? site.host : null
