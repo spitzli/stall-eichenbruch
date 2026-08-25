@@ -1,6 +1,7 @@
 import { formBuilderPlugin } from '@payloadcms/plugin-form-builder'
 import { redirectsPlugin } from '@payloadcms/plugin-redirects'
 import { seoPlugin } from '@payloadcms/plugin-seo'
+import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
 import { Plugin } from 'payload'
 import { revalidateRedirects } from '@/hooks/revalidateRedirects'
 import { GenerateDescription, GenerateImage, GenerateTitle, GenerateURL } from '@payloadcms/plugin-seo/types'
@@ -30,6 +31,12 @@ const generateURL: GenerateURL<Page> = ({ doc }) => {
 }
 
 export const plugins: Plugin[] = [
+  // uploads live in Vercel Blob (the serverless filesystem is ephemeral); locally without a token they stay in public/media
+  vercelBlobStorage({
+    enabled: Boolean(process.env.BLOB_READ_WRITE_TOKEN),
+    collections: { media: true },
+    token: process.env.BLOB_READ_WRITE_TOKEN || '',
+  }),
   redirectsPlugin({
     collections: ['pages'],
     overrides: {
