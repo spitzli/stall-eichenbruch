@@ -4,6 +4,8 @@ import { cn } from '@/utilities/ui'
 import { Albert_Sans, Young_Serif } from 'next/font/google'
 import React from 'react'
 
+import { Analytics } from '@vercel/analytics/next'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import { AdminBar } from '@/components/AdminBar'
 import { Footer } from '@/Footer/Component'
 import { Header } from '@/Header/Component'
@@ -74,6 +76,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <Header />
         {children}
         <Footer />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )
