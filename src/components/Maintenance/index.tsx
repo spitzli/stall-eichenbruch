@@ -27,5 +27,14 @@ export const Maintenance: React.FC<{ siteInfo: SiteInfo }> = ({ siteInfo }) => (
         <ContactLines siteInfo={siteInfo} />
       </div>
     )}
+
+    <a
+      className="mt-16 text-sm text-muted-foreground hover:text-foreground"
+      href="https://spitzli.dev"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      Website: Spitzli Development
+    </a>
   </main>
 )
