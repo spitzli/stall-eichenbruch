@@ -11,6 +11,7 @@ import { Footer } from '@/Footer/Component'
 import { Header } from '@/Header/Component'
 import { MobileBar } from '@/components/MobileBar'
 import { getCachedGlobal } from '@/utilities/getGlobals'
+import { openingHoursSpecification } from '@/utilities/hours'
 import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
 import { SITE_DESCRIPTION, SITE_NAME } from '@/utilities/site'
 import { draftMode } from 'next/headers'
@@ -49,6 +50,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             }
           : undefined,
         hasMap: siteInfo?.mapsUrl || undefined,
+        openingHoursSpecification: siteInfo?.hours?.length
+          ? openingHoursSpecification(siteInfo.hours)
+          : undefined,
       },
       {
         '@type': 'WebSite',

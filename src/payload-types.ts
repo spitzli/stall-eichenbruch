@@ -1504,8 +1504,9 @@ export interface SiteInfo {
   };
   hours?:
     | {
-        label: string;
-        value: string;
+        days: ('mo' | 'tu' | 'we' | 'th' | 'fr' | 'sa' | 'su')[];
+        open: string;
+        close: string;
         id?: string | null;
       }[]
     | null;
@@ -1585,8 +1586,9 @@ export interface SiteInfoSelect<T extends boolean = true> {
   hours?:
     | T
     | {
-        label?: T;
-        value?: T;
+        days?: T;
+        open?: T;
+        close?: T;
         id?: T;
       };
   updatedAt?: T;

@@ -1,6 +1,17 @@
 import type { GlobalConfig } from 'payload'
 import { revalidatePath, revalidateTag } from 'next/cache'
 
+/** Weekday value, admin label, short label for the site, schema.org name */
+export const DAYS = [
+  ['mo', 'Montag', 'Mo', 'Monday'],
+  ['tu', 'Dienstag', 'Di', 'Tuesday'],
+  ['we', 'Mittwoch', 'Mi', 'Wednesday'],
+  ['th', 'Donnerstag', 'Do', 'Thursday'],
+  ['fr', 'Freitag', 'Fr', 'Friday'],
+  ['sa', 'Samstag', 'Sa', 'Saturday'],
+  ['su', 'Sonntag', 'So', 'Sunday'],
+] as const
+
 export const SiteInfo: GlobalConfig = {
   slug: 'site-info',
   label: 'Betrieb',
@@ -85,10 +96,30 @@ export const SiteInfo: GlobalConfig = {
       labels: { singular: 'Zeit', plural: 'Zeiten' },
       fields: [
         {
+          name: 'days',
+          type: 'select',
+          label: 'Wochentage',
+          hasMany: true,
+          required: true,
+          options: DAYS.map(([value, label]) => ({ value, label })),
+        },
+        {
           type: 'row',
           fields: [
-            { name: 'label', type: 'text', label: 'Tag(e)', required: true },
-            { name: 'value', type: 'text', label: 'Zeit', required: true },
+            {
+              name: 'open',
+              type: 'date',
+              label: 'Von',
+              required: true,
+              admin: { date: { pickerAppearance: 'timeOnly', displayFormat: 'HH:mm', timeFormat: 'HH:mm', timeIntervals: 15 } },
+            },
+            {
+              name: 'close',
+              type: 'date',
+              label: 'Bis',
+              required: true,
+              admin: { date: { pickerAppearance: 'timeOnly', displayFormat: 'HH:mm', timeFormat: 'HH:mm', timeIntervals: 15 } },
+            },
           ],
         },
       ],
