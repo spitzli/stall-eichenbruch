@@ -6,6 +6,9 @@ import { getPayload } from 'payload'
 import { draftMode } from 'next/headers'
 import React, { cache } from 'react'
 
+import { ContactLines } from '@/components/ContactLines'
+import { getCachedGlobal } from '@/utilities/getGlobals'
+import { maintenanceState } from '@/utilities/maintenance'
 import { RenderBlocks } from '@/blocks/RenderBlocks'
 import { RenderHero } from '@/heros/RenderHero'
 import { generateMeta } from '@/utilities/generateMeta'
@@ -39,7 +42,30 @@ export default async function Page({ params: paramsPromise }: Args) {
   const decodedSlug = decodeURIComponent(slug)
   const url = '/' + decodedSlug
 
-  const page = await queryPageBySlug({ slug: decodedSlug })
+  const [page, siteInfo] = await Promise.all([
+    queryPageBySlug({ slug: decodedSlug }),
+    getCachedGlobal('site-info')(),
+  ])
+
+  // maintenance mode: public visitors see a notice; draft mode or the preview-key cookie shows the site
+  const maintenance = await maintenanceState(siteInfo)
+  if (maintenance === 'on') {
+    return (
+      <main className="container pt-6 pb-24 md:pt-16">
+        <div className="max-w-3xl">
+          <h1 className="text-[2.5rem] leading-[1.02] sm:text-6xl">{siteInfo.maintenance?.title}</h1>
+          {siteInfo.maintenance?.text && (
+            <p className="mt-6 text-lg md:text-xl text-muted-foreground leading-relaxed whitespace-pre-line">
+              {siteInfo.maintenance?.text}
+            </p>
+          )}
+        </div>
+        <div className="mt-10 plate max-w-md text-lg leading-relaxed">
+          <ContactLines siteInfo={siteInfo} />
+        </div>
+      </main>
+    )
+  }
 
   if (!page) {
     return <PayloadRedirects url={url} />
@@ -49,6 +75,12 @@ export default async function Page({ params: paramsPromise }: Args) {
 
   return (
     <main className="pt-2 pb-16 md:pb-24">
+      {maintenance === 'bypass' && (
+        <p className="container mb-4 text-sm text-muted-foreground">
+          <span className="inline-block rounded-md bg-hay/60 px-2 py-0.5 text-foreground">Vorschau</span>{' '}
+          Wartungsmodus ist aktiv – Besucher sehen diese Seite nicht.
+        </p>
+      )}
       <PayloadRedirects disableNotFound url={url} />
       {draft && <LivePreviewListener />}
 
@@ -60,7 +92,14 @@ export default async function Page({ params: paramsPromise }: Args) {
 
 export async function generateMetadata({ params: paramsPromise }: Args): Promise<Metadata> {
   const { slug = 'home' } = await paramsPromise
-  const page = await queryPageBySlug({ slug: decodeURIComponent(slug) })
+  const [page, siteInfo] = await Promise.all([
+    queryPageBySlug({ slug: decodeURIComponent(slug) }),
+    getCachedGlobal('site-info')(),
+  ])
+
+  if ((await maintenanceState(siteInfo)) !== 'off') {
+    return { title: siteInfo.maintenance?.title || 'Wartung', robots: { index: false, follow: false } }
+  }
 
   return generateMeta({ doc: page })
 }

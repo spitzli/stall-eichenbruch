@@ -20,6 +20,10 @@ Vercel project `spitzli/stall-eichenbruch`, auto-deploys from GitHub `main` (pro
 
 Schema changes: Payload pushes the schema in dev only. Run `bun run dev` (or the seed) against the database once before deploying a change to collections/globals, or add migrations.
 
+## Maintenance mode
+
+Global «Betrieb» → «Wartungsmodus»: visitors get a notice with the contact details, `robots: noindex`. The admin, draft preview and anyone who opened `/vorschau?key=<Vorschau-Schlüssel>` (30-day cookie) still see the site. Dev and production share the database – toggling it locally toggles it live.
+
 ## Content model
 
 - **Pages** – hero (image + title / title only / none) and a block layout. Draft/publish, live preview, SEO.

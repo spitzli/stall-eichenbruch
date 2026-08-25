@@ -81,6 +81,10 @@ export interface Config {
     'payload-migrations': PayloadMigration;
   };
   collectionsJoins: {
+    media: {
+      usedInHero: 'pages';
+      usedInSeo: 'pages';
+    };
     'payload-folders': {
       documentsAndFolders: 'payload-folders' | 'media';
     };
@@ -214,6 +218,9 @@ export interface Page {
  */
 export interface Media {
   id: number;
+  /**
+   * Kurze Bildbeschreibung – wichtig für Google und Screenreader.
+   */
   alt?: string | null;
   caption?: {
     root: {
@@ -230,6 +237,17 @@ export interface Media {
     };
     [k: string]: unknown;
   } | null;
+  usedInHero?: {
+    docs?: (number | Page)[];
+    hasNextPage?: boolean;
+    totalDocs?: number;
+  };
+  usedInSeo?: {
+    docs?: (number | Page)[];
+    hasNextPage?: boolean;
+    totalDocs?: number;
+  };
+  usedInBlocks?: string | null;
   folder?: (number | null) | FolderInterface;
   updatedAt: string;
   createdAt: string;
@@ -1111,6 +1129,9 @@ export interface FormBlockSelect<T extends boolean = true> {
 export interface MediaSelect<T extends boolean = true> {
   alt?: T;
   caption?: T;
+  usedInHero?: T;
+  usedInSeo?: T;
+  usedInBlocks?: T;
   folder?: T;
   updatedAt?: T;
   createdAt?: T;
@@ -1469,6 +1490,18 @@ export interface SiteInfo {
    * Ein bis zwei Sätze – Standard-Beschreibung für Google und soziale Netzwerke.
    */
   description?: string | null;
+  /**
+   * Eingeschaltet zeigt die Website nur noch Titel, Text und Kontakt. Der Admin und die Vorschau für eingeloggte Nutzer bleiben erreichbar.
+   */
+  maintenance?: {
+    enabled?: boolean | null;
+    title?: string | null;
+    text?: string | null;
+    /**
+     * Wer den Link https://IHRE-DOMAIN/vorschau?key=SCHLÜSSEL öffnet, sieht die Website trotz Wartungsmodus (30 Tage, pro Browser).
+     */
+    bypassKey?: string | null;
+  };
   hours?:
     | {
         label: string;
@@ -1541,6 +1574,14 @@ export interface SiteInfoSelect<T extends boolean = true> {
   email?: T;
   mapsUrl?: T;
   description?: T;
+  maintenance?:
+    | T
+    | {
+        enabled?: T;
+        title?: T;
+        text?: T;
+        bypassKey?: T;
+      };
   hours?:
     | T
     | {

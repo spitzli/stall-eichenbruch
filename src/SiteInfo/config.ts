@@ -41,6 +41,42 @@ export const SiteInfo: GlobalConfig = {
       admin: { description: 'Ein bis zwei Sätze – Standard-Beschreibung für Google und soziale Netzwerke.' },
     },
     {
+      name: 'maintenance',
+      type: 'group',
+      label: 'Wartungsmodus',
+      admin: {
+        description:
+          'Eingeschaltet zeigt die Website nur noch Titel, Text und Kontakt. Der Admin und die Vorschau für eingeloggte Nutzer bleiben erreichbar.',
+      },
+      fields: [
+        { name: 'enabled', type: 'checkbox', label: 'Wartungsmodus einschalten', defaultValue: false },
+        {
+          name: 'title',
+          type: 'text',
+          label: 'Titel',
+          defaultValue: 'Wir sind gleich wieder da.',
+          admin: { condition: (_, { enabled } = {}) => Boolean(enabled) },
+        },
+        {
+          name: 'text',
+          type: 'textarea',
+          label: 'Text',
+          defaultValue: 'Die Website wird gerade überarbeitet. Sie erreichen uns wie gewohnt per Telefon oder E-Mail.',
+          admin: { condition: (_, { enabled } = {}) => Boolean(enabled) },
+        },
+        {
+          name: 'bypassKey',
+          type: 'text',
+          label: 'Vorschau-Schlüssel',
+          admin: {
+            condition: (_, { enabled } = {}) => Boolean(enabled),
+            description:
+              'Wer den Link https://IHRE-DOMAIN/vorschau?key=SCHLÜSSEL öffnet, sieht die Website trotz Wartungsmodus (30 Tage, pro Browser).',
+          },
+        },
+      ],
+    },
+    {
       name: 'hours',
       type: 'array',
       label: 'Stallzeiten',
