@@ -5,6 +5,7 @@ import { revalidateFooter } from './hooks/revalidateFooter'
 
 export const Footer: GlobalConfig = {
   slug: 'footer',
+  label: 'Footer',
   access: {
     read: () => true,
   },
@@ -12,18 +13,14 @@ export const Footer: GlobalConfig = {
     {
       name: 'navItems',
       type: 'array',
+      label: 'Links (z. B. Impressum, Datenschutz)',
+      labels: { singular: 'Link', plural: 'Links' },
       fields: [
         link({
           appearances: false,
         }),
       ],
       maxRows: 6,
-      admin: {
-        initCollapsed: true,
-        components: {
-          RowLabel: '@/Footer/RowLabel#RowLabel',
-        },
-      },
     },
   ],
   hooks: {

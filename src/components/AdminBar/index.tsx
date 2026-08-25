@@ -16,12 +16,8 @@ const baseClass = 'admin-bar'
 
 const collectionLabels = {
   pages: {
-    plural: 'Pages',
-    singular: 'Page',
-  },
-  posts: {
-    plural: 'Posts',
-    singular: 'Post',
+    plural: 'Seiten',
+    singular: 'Seite',
   },
   projects: {
     plural: 'Projects',

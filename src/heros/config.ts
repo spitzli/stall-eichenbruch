@@ -1,72 +1,49 @@
 import type { Field } from 'payload'
 
-import {
-  FixedToolbarFeature,
-  HeadingFeature,
-  InlineToolbarFeature,
-  lexicalEditor,
-} from '@payloadcms/richtext-lexical'
-
 import { linkGroup } from '@/fields/linkGroup'
 
 export const hero: Field = {
   name: 'hero',
   type: 'group',
+  label: false,
   fields: [
     {
       name: 'type',
       type: 'select',
-      defaultValue: 'lowImpact',
-      label: 'Type',
-      options: [
-        {
-          label: 'None',
-          value: 'none',
-        },
-        {
-          label: 'High Impact',
-          value: 'highImpact',
-        },
-        {
-          label: 'Medium Impact',
-          value: 'mediumImpact',
-        },
-        {
-          label: 'Low Impact',
-          value: 'lowImpact',
-        },
-      ],
+      label: 'Art',
+      defaultValue: 'text',
       required: true,
+      options: [
+        { label: 'Bild mit Titel', value: 'image' },
+        { label: 'Nur Titel', value: 'text' },
+        { label: 'Kein Hero', value: 'none' },
+      ],
     },
     {
-      name: 'richText',
-      type: 'richText',
-      editor: lexicalEditor({
-        features: ({ rootFeatures }) => {
-          return [
-            ...rootFeatures,
-            HeadingFeature({ enabledHeadingSizes: ['h1', 'h2', 'h3', 'h4'] }),
-            FixedToolbarFeature(),
-            InlineToolbarFeature(),
-          ]
-        },
-      }),
-      label: false,
+      name: 'title',
+      type: 'text',
+      label: 'Titel',
+      admin: { condition: (_, { type } = {}) => type !== 'none' },
+    },
+    {
+      name: 'text',
+      type: 'textarea',
+      label: 'Einleitung',
+      admin: { condition: (_, { type } = {}) => type !== 'none' },
     },
     linkGroup({
       overrides: {
         maxRows: 2,
+        admin: { condition: (_, { type } = {}) => type !== 'none' },
       },
     }),
     {
       name: 'media',
       type: 'upload',
-      admin: {
-        condition: (_, { type } = {}) => ['highImpact', 'mediumImpact'].includes(type),
-      },
+      label: 'Bild',
       relationTo: 'media',
       required: true,
+      admin: { condition: (_, { type } = {}) => type === 'image' },
     },
   ],
-  label: false,
 }

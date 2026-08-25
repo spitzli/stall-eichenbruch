@@ -5,6 +5,7 @@ import { revalidateHeader } from './hooks/revalidateHeader'
 
 export const Header: GlobalConfig = {
   slug: 'header',
+  label: 'Navigation',
   access: {
     read: () => true,
   },
@@ -12,18 +13,14 @@ export const Header: GlobalConfig = {
     {
       name: 'navItems',
       type: 'array',
+      label: 'Menüpunkte',
+      labels: { singular: 'Menüpunkt', plural: 'Menüpunkte' },
       fields: [
         link({
           appearances: false,
         }),
       ],
       maxRows: 6,
-      admin: {
-        initCollapsed: true,
-        components: {
-          RowLabel: '@/Header/RowLabel#RowLabel',
-        },
-      },
     },
   ],
   hooks: {

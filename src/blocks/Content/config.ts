@@ -13,24 +13,13 @@ const columnFields: Field[] = [
   {
     name: 'size',
     type: 'select',
-    defaultValue: 'oneThird',
+    label: 'Breite',
+    defaultValue: 'half',
     options: [
-      {
-        label: 'One Third',
-        value: 'oneThird',
-      },
-      {
-        label: 'Half',
-        value: 'half',
-      },
-      {
-        label: 'Two Thirds',
-        value: 'twoThirds',
-      },
-      {
-        label: 'Full',
-        value: 'full',
-      },
+      { label: 'Ein Drittel', value: 'oneThird' },
+      { label: 'Hälfte', value: 'half' },
+      { label: 'Zwei Drittel', value: 'twoThirds' },
+      { label: 'Volle Breite', value: 'full' },
     ],
   },
   {
@@ -51,6 +40,7 @@ const columnFields: Field[] = [
   {
     name: 'enableLink',
     type: 'checkbox',
+    label: 'Link anzeigen',
   },
   link({
     overrides: {
@@ -66,10 +56,13 @@ const columnFields: Field[] = [
 export const Content: Block = {
   slug: 'content',
   interfaceName: 'ContentBlock',
+  labels: { singular: 'Text', plural: 'Texte' },
   fields: [
     {
       name: 'columns',
       type: 'array',
+      label: 'Spalten',
+      labels: { singular: 'Spalte', plural: 'Spalten' },
       admin: {
         initCollapsed: true,
       },
