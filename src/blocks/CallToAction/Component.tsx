@@ -1,23 +1,30 @@
 import React from 'react'
 
-import type { CallToActionBlock as CTABlockProps } from '@/payload-types'
+import type { CallToActionBlock as Props } from '@/payload-types'
 
-import RichText from '@/components/RichText'
 import { CMSLink } from '@/components/Link'
 
-export const CallToActionBlock: React.FC<CTABlockProps> = ({ links, richText }) => {
-  return (
-    <div className="container">
-      <div className="bg-card rounded border-border border p-4 flex flex-col gap-8 md:flex-row md:justify-between md:items-center">
-        <div className="max-w-[48rem] flex items-center">
-          {richText && <RichText className="mb-0" data={richText} enableGutter={false} />}
-        </div>
-        <div className="flex flex-col gap-8">
-          {(links || []).map(({ link }, i) => {
-            return <CMSLink key={i} size="lg" {...link} />
-          })}
-        </div>
-      </div>
+export const CallToActionBlock: React.FC<Props> = ({ heading, text, links }) => (
+  <div className="rounded-[2rem] bg-primary text-primary-foreground p-8 md:p-14 grid gap-8 md:grid-cols-12 md:items-center">
+    <div className="md:col-span-8">
+      <h2 className="text-3xl md:text-5xl">{heading}</h2>
+      {text && <p className="mt-4 text-lg md:text-xl opacity-85 leading-relaxed whitespace-pre-line">{text}</p>}
     </div>
-  )
-}
+    {links && links.length > 0 && (
+      <div className="md:col-span-4 flex flex-wrap gap-3 md:justify-end">
+        {links.map(({ link }, i) => (
+          <CMSLink
+            key={i}
+            size="lg"
+            {...link}
+            className={
+              link.appearance === 'outline'
+                ? 'border-primary-foreground/40 text-primary-foreground hover:border-primary-foreground hover:bg-transparent'
+                : 'bg-card text-primary hover:bg-hay hover:text-foreground'
+            }
+          />
+        ))}
+      </div>
+    )}
+  </div>
+)

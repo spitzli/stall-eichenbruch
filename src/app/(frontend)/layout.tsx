@@ -1,43 +1,79 @@
 import type { Metadata } from 'next'
 
 import { cn } from '@/utilities/ui'
-import { GeistMono } from 'geist/font/mono'
-import { GeistSans } from 'geist/font/sans'
+import { Albert_Sans, Young_Serif } from 'next/font/google'
 import React from 'react'
 
 import { AdminBar } from '@/components/AdminBar'
 import { Footer } from '@/Footer/Component'
 import { Header } from '@/Header/Component'
-import { Providers } from '@/providers'
-import { InitTheme } from '@/providers/Theme/InitTheme'
+import { getCachedGlobal } from '@/utilities/getGlobals'
 import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
+import { SITE_DESCRIPTION, SITE_NAME } from '@/utilities/site'
 import { draftMode } from 'next/headers'
 
 import './globals.css'
 import { getServerSideURL } from '@/utilities/getURL'
 
+const display = Young_Serif({ subsets: ['latin'], weight: '400', variable: '--font-young-serif' })
+const sans = Albert_Sans({ subsets: ['latin'], variable: '--font-albert-sans' })
+
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const { isEnabled } = await draftMode()
+  const [{ isEnabled }, siteInfo] = await Promise.all([draftMode(), getCachedGlobal('site-info')()])
+
+  const url = getServerSideURL()
+  const [postalCode, ...locality] = (siteInfo?.city || '').split(' ')
+  // Local-SEO structured data: one LocalBusiness + WebSite entity for the whole site
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': ['LocalBusiness', 'SportsActivityLocation'],
+        '@id': `${url}/#business`,
+        name: siteInfo?.name || SITE_NAME,
+        description: siteInfo?.description || SITE_DESCRIPTION,
+        url,
+        image: `${url}/og/home`,
+        telephone: siteInfo?.phone || undefined,
+        email: siteInfo?.email || undefined,
+        address: siteInfo?.street
+          ? {
+              '@type': 'PostalAddress',
+              streetAddress: siteInfo.street,
+              postalCode,
+              addressLocality: locality.join(' '),
+              addressCountry: 'DE',
+            }
+          : undefined,
+        hasMap: siteInfo?.mapsUrl || undefined,
+      },
+      {
+        '@type': 'WebSite',
+        '@id': `${url}/#website`,
+        name: siteInfo?.name || SITE_NAME,
+        url,
+        inLanguage: 'de-DE',
+        publisher: { '@id': `${url}/#business` },
+      },
+    ],
+  }
 
   return (
-    <html className={cn(GeistSans.variable, GeistMono.variable)} lang="en" suppressHydrationWarning>
+    <html className={cn(display.variable, sans.variable)} lang="de">
       <head>
-        <InitTheme />
         <link href="/favicon.ico" rel="icon" sizes="32x32" />
         <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
+        <link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
       </head>
       <body>
-        <Providers>
-          <AdminBar
-            adminBarProps={{
-              preview: isEnabled,
-            }}
-          />
-
-          <Header />
-          {children}
-          <Footer />
-        </Providers>
+        <AdminBar adminBarProps={{ preview: isEnabled }} />
+        <Header />
+        {children}
+        <Footer />
       </body>
     </html>
   )
@@ -45,9 +81,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
 export const metadata: Metadata = {
   metadataBase: new URL(getServerSideURL()),
+  title: { default: SITE_NAME, template: `%s | ${SITE_NAME}` },
+  description: SITE_DESCRIPTION,
   openGraph: mergeOpenGraph(),
-  twitter: {
-    card: 'summary_large_image',
-    creator: '@payloadcms',
-  },
+  robots: { index: true, follow: true },
+  alternates: { canonical: '/' },
 }

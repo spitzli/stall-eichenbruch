@@ -9,7 +9,6 @@ import type { MediaBlock as MediaBlockProps } from '@/payload-types'
 import { Media } from '../../components/Media'
 
 type Props = MediaBlockProps & {
-  breakout?: boolean
   captionClassName?: string
   className?: string
   enableGutter?: boolean
@@ -18,50 +17,30 @@ type Props = MediaBlockProps & {
   disableInnerContainer?: boolean
 }
 
-export const MediaBlock: React.FC<Props> = (props) => {
-  const {
-    captionClassName,
-    className,
-    enableGutter = true,
-    imgClassName,
-    media,
-    staticImage,
-    disableInnerContainer,
-  } = props
-
-  let caption
-  if (media && typeof media === 'object') caption = media.caption
+export const MediaBlock: React.FC<Props> = ({
+  captionClassName,
+  className,
+  enableGutter = false,
+  imgClassName,
+  media,
+  staticImage,
+}) => {
+  const caption = media && typeof media === 'object' ? media.caption : undefined
 
   return (
-    <div
-      className={cn(
-        '',
-        {
-          container: enableGutter,
-        },
-        className,
-      )}
-    >
+    <figure className={cn({ container: enableGutter }, className)}>
       {(media || staticImage) && (
         <Media
-          imgClassName={cn('border border-border rounded-[0.8rem]', imgClassName)}
+          imgClassName={cn('w-full h-auto rounded-[2rem]', imgClassName)}
           resource={media}
           src={staticImage}
         />
       )}
       {caption && (
-        <div
-          className={cn(
-            'mt-6',
-            {
-              container: !disableInnerContainer,
-            },
-            captionClassName,
-          )}
-        >
-          <RichText data={caption} enableGutter={false} />
-        </div>
+        <figcaption className={cn('mt-4 text-sm text-muted-foreground', captionClassName)}>
+          <RichText data={caption} enableGutter={false} enableProse={false} />
+        </figcaption>
       )}
-    </div>
+    </figure>
   )
 }
