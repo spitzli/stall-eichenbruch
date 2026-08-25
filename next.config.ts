@@ -45,6 +45,9 @@ const nextConfig: NextConfig = {
     return webpackConfig
   },
   reactStrictMode: true,
+  outputFileTracingIncludes: {
+    '/og/[slug]': ['./src/app/(frontend)/og/*.ttf'],
+  },
   redirects,
   turbopack: {
     root: path.resolve(dirname),
