@@ -20,16 +20,23 @@ export const Lightbox: React.FC<{ images: MediaType[] }> = ({ images }) => {
 
   return (
     <>
-      <div className="columns-2 md:columns-3 gap-4">
+      {/* phones: edge-to-edge horizontal snap strip; md+: masonry columns */}
+      <div className="flex gap-3 overflow-x-auto snap-x snap-mandatory -mx-5 px-5 pb-2 scrollbar-none md:block md:columns-3 md:gap-4 md:mx-0 md:px-0 md:pb-0">
         {images.map((image, i) => (
           <button
             key={image.id ?? i}
             type="button"
             onClick={() => setIndex(i)}
             aria-label={`Bild vergrößern: ${image.alt || ''}`}
-            className="mb-4 block w-full break-inside-avoid overflow-hidden rounded-2xl cursor-zoom-in transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+            className="shrink-0 w-[82%] aspect-[4/3] snap-start md:w-full md:aspect-auto md:mb-4 block break-inside-avoid overflow-hidden rounded-2xl cursor-zoom-in transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
           >
-            <Media resource={image} imgClassName="w-full h-auto" size="(min-width: 768px) 33vw, 50vw" />
+            <Media
+              resource={image}
+              className="h-full md:h-auto"
+              pictureClassName="block h-full md:h-auto"
+              imgClassName="w-full h-full object-cover md:h-auto"
+              size="(min-width: 768px) 33vw, 82vw"
+            />
           </button>
         ))}
       </div>

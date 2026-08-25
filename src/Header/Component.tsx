@@ -11,13 +11,9 @@ export async function Header() {
   ])
   const navItems = header?.navItems || []
 
-  const links = navItems.map(({ link }, i) => (
-    <CMSLink key={i} {...link} appearance="inline" className="nav-link" />
-  ))
-
   return (
-    <header className="container">
-      <div className="flex items-center justify-between py-6 md:py-8">
+    <header className="container relative">
+      <div className="flex items-center justify-between py-5 md:py-8">
         <Link href="/" className="flex flex-col gap-1">
           <span className="font-display text-[1.6rem] md:text-3xl leading-none">
             {siteInfo?.name || 'Stall Eichenbruch'}
@@ -27,16 +23,36 @@ export async function Header() {
           )}
         </Link>
 
-        <nav className="hidden md:flex items-center gap-8 text-[15px]">{links}</nav>
+        <nav className="hidden md:flex items-center gap-8 text-[15px]">
+          {navItems.map(({ link }, i) => (
+            <CMSLink key={i} {...link} appearance="inline" className="nav-link" />
+          ))}
+        </nav>
 
-        {/* ponytail: native <details> menu – no JS, no state */}
-        {links.length > 0 && (
-          <details className="md:hidden relative group">
-            <summary className="list-none cursor-pointer select-none rounded-full border border-border px-4 py-2 text-sm bg-card [&::-webkit-details-marker]:hidden group-open:bg-foreground group-open:text-background">
-              Menü
+        {/* ponytail: native <details> menu – no JS, no state; panel spans the full width below the header */}
+        {navItems.length > 0 && (
+          <details className="md:hidden group">
+            <summary className="list-none cursor-pointer select-none rounded-full border border-border px-4 py-2.5 text-sm bg-card [&::-webkit-details-marker]:hidden group-open:bg-foreground group-open:text-background">
+              <span className="group-open:hidden">Menü</span>
+              <span className="hidden group-open:inline">Schliessen</span>
             </summary>
-            <nav className="absolute right-0 top-full mt-3 z-30 plate min-w-52 flex flex-col gap-3 text-base">
-              {links}
+            <nav className="absolute left-5 right-5 top-full z-30 plate p-2 md:p-2 flex flex-col divide-y divide-border">
+              {navItems.map(({ link }, i) => (
+                <CMSLink
+                  key={i}
+                  {...link}
+                  appearance="inline"
+                  className="font-display text-2xl px-4 py-4 rounded-xl hover:bg-background"
+                />
+              ))}
+              {siteInfo?.phone && (
+                <a
+                  className="px-4 py-4 text-muted-foreground"
+                  href={`tel:${siteInfo.phone.replace(/[\s\-/]/g, '')}`}
+                >
+                  Anrufen: {siteInfo.phone}
+                </a>
+              )}
             </nav>
           </details>
         )}

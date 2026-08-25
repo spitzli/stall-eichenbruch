@@ -13,14 +13,14 @@ export const RenderHero: React.FC<Page['hero']> = ({ type, title, text, links, m
   return (
     <section className="container">
       {hasImage && (
-        <div className="relative aspect-[4/3] sm:aspect-[16/9] lg:aspect-[5/2] overflow-hidden rounded-[2rem]">
+        <div className="relative aspect-[3/2] sm:aspect-[16/9] lg:aspect-[5/2] overflow-hidden rounded-3xl md:rounded-[2rem]">
           <Media fill priority imgClassName="object-cover" resource={media} />
         </div>
       )}
 
       <div className={hasImage ? 'grid gap-6 md:gap-8 md:grid-cols-12 pt-10 md:pt-14 pb-6 md:pb-10' : 'grid gap-6 md:gap-8 md:grid-cols-12 pt-6 md:pt-16 pb-6 md:pb-10'}>
         {title && (
-          <h1 className="text-[2.75rem] leading-[1.02] sm:text-6xl lg:text-7xl md:col-span-7">
+          <h1 className="text-[2.5rem] leading-[1.02] sm:text-6xl lg:text-7xl md:col-span-7 [hyphens:auto] sm:[hyphens:manual]">
             {title}
           </h1>
         )}

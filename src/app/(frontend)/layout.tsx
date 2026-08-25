@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 
 import { cn } from '@/utilities/ui'
 import { Albert_Sans, Young_Serif } from 'next/font/google'
@@ -9,6 +9,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next'
 import { AdminBar } from '@/components/AdminBar'
 import { Footer } from '@/Footer/Component'
 import { Header } from '@/Header/Component'
+import { MobileBar } from '@/components/MobileBar'
 import { getCachedGlobal } from '@/utilities/getGlobals'
 import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
 import { SITE_DESCRIPTION, SITE_NAME } from '@/utilities/site'
@@ -76,11 +77,17 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <Header />
         {children}
         <Footer />
+        <MobileBar />
         <Analytics />
         <SpeedInsights />
       </body>
     </html>
   )
+}
+
+export const viewport: Viewport = {
+  themeColor: '#f4f6f2',
+  viewportFit: 'cover',
 }
 
 export const metadata: Metadata = {
