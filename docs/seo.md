@@ -26,6 +26,29 @@ Wettbewerb im Umkreis (gefunden): Stop & Turn (Rastede, Western), Reit- und Fahr
 | Lokale Keywords in Titles/Descriptions/Texten des Seeds | `src/seed/index.ts` |
 | `lang="de"`, ein H1 pro Seite, Alt-Texte, next/font, Bildqualität 85 | Layout/Blocks |
 
+## URL-Map (alte WordPress-Site → neu)
+
+| Alt | Neu | Status |
+|---|---|---|
+| `/` | `/` | gleich |
+| `/wir-uber-uns/` | `/wir-ueber-uns` | 301 (`redirects.ts`) |
+| `/ausbildung/` | `/ausbildung` | gleich |
+| `/pension/` | `/pension` | gleich |
+| `/impressum/` | `/impressum` | gleich |
+| `/impressum/datenschutzerklaerung/` | `/datenschutz` | 301 |
+| `/index.html`, `/index.php`, `/home` | `/` | 301 |
+| – | `/kontakt` | neu |
+
+Trailing Slashes leitet Next.js automatisch um. Weitere Redirects: Admin → Redirects (braucht Rebuild).
+
+## Wartungsmodus und SEO
+
+Bei aktivem Wartungsmodus antwortet `src/proxy.ts` für alle Seiten mit **503 + Retry-After: 3600** – Suchmaschinen behalten den Index und kommen später wieder. `robots.txt`, `sitemap.xml`, `pages-sitemap.xml`, OG-Bilder, Admin und API sind ausgenommen. Kein `noindex` im Wartungsmodus (würde Seiten aus dem Index werfen).
+
+## Search Console
+
+Sitemap-URL zum Einreichen: `https://stall-eichenbruch.vercel.app/sitemap.xml` (Index, verweist auf `pages-sitemap.xml`). Nach Domainwechsel dieselbe Pfadangabe unter der neuen Domain einreichen.
+
 ## Offen (nicht im Code lösbar)
 
 1. **Google Business Profile** anlegen/übernehmen und verifizieren – Kategorie «Reitstall»/«Pferdepension», Fotos, Öffnungszeiten, Website-Link. Wichtigster Einzelschritt.

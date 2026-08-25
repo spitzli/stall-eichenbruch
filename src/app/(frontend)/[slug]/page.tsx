@@ -75,15 +75,9 @@ export default async function Page({ params: paramsPromise }: Args) {
 
 export async function generateMetadata({ params: paramsPromise }: Args): Promise<Metadata> {
   const { slug = 'home' } = await paramsPromise
-  const [page, siteInfo] = await Promise.all([
-    queryPageBySlug({ slug: decodeURIComponent(slug) }),
-    getCachedGlobal('site-info')(),
-  ])
+  const page = await queryPageBySlug({ slug: decodeURIComponent(slug) })
 
-  if ((await maintenanceState(siteInfo)) !== 'off') {
-    return { title: siteInfo.maintenance?.title || 'Wartung', robots: { index: false, follow: false } }
-  }
-
+  // no "noindex" during maintenance – proxy.ts answers with 503 instead, which keeps the index intact
   return generateMeta({ doc: page })
 }
 

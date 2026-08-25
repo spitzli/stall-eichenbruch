@@ -26,7 +26,7 @@ The contact form comes from the form-builder plugin: submissions are stored unde
 
 ## Maintenance mode
 
-Global «Betrieb» → «Wartungsmodus»: visitors get a notice with the contact details, `robots: noindex`. The admin, draft preview and anyone who opened `/vorschau?key=<Vorschau-Schlüssel>` (30-day cookie) still see the site. Dev and production share the database – toggling it locally toggles it live.
+Global «Betrieb» → «Wartungsmodus»: `src/proxy.ts` answers every page with **503 + Retry-After** and the maintenance notice, so search engines keep the index (robots.txt, sitemaps, OG images, admin and API stay untouched). The admin, draft preview and anyone who opened `/vorschau?key=<Vorschau-Schlüssel>` (30-day cookie) still see the site. Dev and production share the database – toggling it locally toggles it live.
 
 ## Content model
 
