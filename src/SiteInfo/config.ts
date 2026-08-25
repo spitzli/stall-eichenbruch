@@ -1,5 +1,5 @@
 import type { GlobalConfig } from 'payload'
-import { revalidateTag } from 'next/cache'
+import { revalidatePath, revalidateTag } from 'next/cache'
 
 export const SiteInfo: GlobalConfig = {
   slug: 'site-info',
@@ -68,6 +68,8 @@ export const SiteInfo: GlobalConfig = {
           name: 'bypassKey',
           type: 'text',
           label: 'Vorschau-Schlüssel',
+          // the global is publicly readable – keep the key out of the REST/GraphQL response
+          access: { read: ({ req }) => Boolean(req.user) },
           admin: {
             condition: (_, { enabled } = {}) => Boolean(enabled),
             description:
@@ -95,7 +97,11 @@ export const SiteInfo: GlobalConfig = {
   hooks: {
     afterChange: [
       ({ doc, req: { context } }) => {
-        if (!context.disableRevalidate) revalidateTag('global_site-info', 'max')
+        if (!context.disableRevalidate) {
+          revalidateTag('global_site-info', 'max')
+          // header, footer, contact block and maintenance mode appear on every page
+          revalidatePath('/', 'layout')
+        }
         return doc
       },
     ],

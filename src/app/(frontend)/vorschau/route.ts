@@ -1,10 +1,13 @@
-import { cookies } from 'next/headers'
+import { draftMode } from 'next/headers'
 import { redirect } from 'next/navigation'
 
 import { getCachedGlobal } from '@/utilities/getGlobals'
-import { BYPASS_COOKIE } from '@/utilities/maintenance'
 
-/** `/vorschau?key=…` – lets clients view the site while maintenance mode is on. */
+/**
+ * `/vorschau?key=…` – lets clients view the site while maintenance mode is on.
+ * Enables Next.js draft mode for this browser (same mechanism as the editor preview), which the
+ * page treats as a maintenance bypass. Drafts become visible too – the key is a secret.
+ */
 export async function GET(req: Request) {
   const key = new URL(req.url).searchParams.get('key')
   const siteInfo = await getCachedGlobal('site-info')()
@@ -14,11 +17,6 @@ export async function GET(req: Request) {
     return new Response('Ungültiger Schlüssel.', { status: 403 })
   }
 
-  ;(await cookies()).set(BYPASS_COOKIE, key, {
-    httpOnly: true,
-    sameSite: 'lax',
-    path: '/',
-    maxAge: 60 * 60 * 24 * 30,
-  })
+  ;(await draftMode()).enable()
   redirect('/')
 }
