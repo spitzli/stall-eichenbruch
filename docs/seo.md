@@ -47,7 +47,7 @@ Bei aktivem Wartungsmodus antwortet `src/proxy.ts` für alle Seiten mit **503 + 
 
 ## Search Console
 
-Sitemap-URL zum Einreichen: `https://stall-eichenbruch.vercel.app/sitemap.xml` (Index, verweist auf `pages-sitemap.xml`). Nach Domainwechsel dieselbe Pfadangabe unter der neuen Domain einreichen.
+Property `www.stall-eichenbruch.de` anlegen und dort `https://www.stall-eichenbruch.de/sitemap.xml` einreichen (Index, verweist auf `pages-sitemap.xml`). Die vercel.app-Adresse leitet permanent auf www um und gehört nicht in die Search Console.
 
 ## Offen (nicht im Code lösbar)
 
