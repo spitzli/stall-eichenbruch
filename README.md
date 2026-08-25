@@ -14,6 +14,12 @@ bun run seed           # content + admin user (admin@stall-eichenbruch.eu / pass
 
 After changing collections, blocks or globals: `bun run generate:types`.
 
+## Deployment
+
+Vercel project `spitzli/stall-eichenbruch`, auto-deploys from GitHub `main` (production) and PR branches (preview). Env: `POSTGRES_URL` (Neon integration), `BLOB_READ_WRITE_TOKEN` (Blob store `stall-eichenbruch-media`), `PAYLOAD_SECRET`, `PREVIEW_SECRET`, `CRON_SECRET`. `NEXT_PUBLIC_SERVER_URL` is optional – the production domain comes from `VERCEL_PROJECT_PRODUCTION_URL`. Pull env locally with `bunx vercel env pull`.
+
+Schema changes: Payload pushes the schema in dev only. Run `bun run dev` (or the seed) against the database once before deploying a change to collections/globals, or add migrations.
+
 ## Content model
 
 - **Pages** – hero (image + title / title only / none) and a block layout. Draft/publish, live preview, SEO.
