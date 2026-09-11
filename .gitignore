@@ -24,3 +24,6 @@ node_modules/
 .playwright-mcp/
 tsconfig.tsbuildinfo
 .env*
+
+# Private CMS backups (may contain unpublished content)
+.backups/

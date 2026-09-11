@@ -1,0 +1,130 @@
+[
+  {
+    "source": "Photos/18931.jpg",
+    "name": "stallgasse",
+    "alt": "Stallgasse mit Pferdeboxen auf beiden Seiten",
+    "use": "Galerie: Stall und Boxen",
+    "restored": "assets/photos-restored/stallgasse.webp"
+  },
+  {
+    "source": "Photos/18932.jpg",
+    "name": "stallgasse-hochformat",
+    "alt": "Blick entlang der Stallgasse im Hochformat",
+    "use": "Galerie: Hochformat, Alternative zu stallgasse",
+    "restored": "assets/photos-restored/stallgasse-hochformat.webp"
+  },
+  {
+    "source": "Photos/18933.jpg",
+    "name": "reitplatz",
+    "alt": "Reitplatz mit Sandboden, Einzäunung und Bäumen im Hintergrund",
+    "use": "Galerie: Außenplatz",
+    "restored": "assets/photos-restored/reitplatz.webp"
+  },
+  {
+    "source": "Photos/18934.jpg",
+    "name": "cora-guenter-mit-hunden",
+    "alt": "Cora und Günter Mann mit zwei Hunden auf einer Gartenbank",
+    "use": "Archiv: Porträt, nicht als Anlagenbild",
+    "restored": "assets/photos-restored/cora-guenter-mit-hunden.webp"
+  },
+  {
+    "source": "Photos/18935.jpg",
+    "name": "reithalle",
+    "alt": "Innenansicht der Reithalle mit Reitboden, Bande und Dachbalken",
+    "use": "Hero oder Galerie: Reithalle",
+    "restored": "assets/photos-restored/reithalle.webp"
+  },
+  {
+    "source": "Photos/18936.jpg",
+    "name": "reitplatz-terrasse",
+    "alt": "Blick von der Terrasse mit Sitzplätzen auf den Reitplatz",
+    "use": "Hero oder Galerie: Außenplatz",
+    "restored": "assets/photos-restored/reitplatz-terrasse.webp"
+  },
+  {
+    "source": "Photos/18937.jpg",
+    "name": "paddockboxen",
+    "alt": "Pferde in eingezäunten Paddocks vor den Stallboxen",
+    "use": "Hero Pension oder Galerie: Paddocks",
+    "restored": "assets/photos-restored/paddockboxen.webp"
+  },
+  {
+    "source": "Photos/18938.jpg",
+    "name": "longierzelt",
+    "alt": "Überdachter Longierplatz mit einem Pferd und zwei Personen unter dem Zeltdach",
+    "use": "Galerie: Longierplatz mit Zelt",
+    "restored": "assets/photos-restored/longierzelt.webp"
+  },
+  {
+    "source": "src/seed/images/cora-guenter.jpg",
+    "name": "cora-guenter-archiv",
+    "alt": "Cora und Günter Mann mit Hunden im Garten",
+    "use": "Archiv: niedrig aufgelöst, neues Porträt bevorzugen",
+    "restored": "assets/photos-restored/cora-guenter-archiv.webp"
+  },
+  {
+    "source": "src/seed/images/header-1.jpg",
+    "name": "boxenfenster",
+    "alt": "Pferd an einem geöffneten Boxenfenster in der Backsteinwand",
+    "use": "Galerie: Boxen",
+    "restored": "assets/photos-restored/boxenfenster.webp"
+  },
+  {
+    "source": "src/seed/images/header-2.jpg",
+    "name": "dressur-aussenplatz",
+    "alt": "Reiterin auf einem Pferd bei der Dressurarbeit auf dem Außenplatz",
+    "use": "Ausbildung: vorhandenes Banner",
+    "restored": "assets/photos-restored/dressur-aussenplatz.webp"
+  },
+  {
+    "source": "src/seed/images/header-3.jpg",
+    "name": "cora-guenter-banner",
+    "alt": "Bildmontage von Cora und Günter Mann mit ihren Hunden",
+    "use": "Archiv: vorhandene Montage, kein Anlagen-Hero",
+    "restored": "assets/photos-restored/cora-guenter-banner.webp"
+  },
+  {
+    "source": "src/seed/images/header-4.jpg",
+    "name": "stall-eichenbruch-gebaeude",
+    "focalX": 90,
+    "focalY": 50,
+    "alt": "Stallgebäude mit dem Schriftzug Stall Eichenbruch",
+    "use": "Hero Startseite: vorhandenes Banner",
+    "restored": "assets/photos-restored/stall-eichenbruch-gebaeude.webp"
+  },
+  {
+    "source": "src/seed/images/header-5.jpg",
+    "name": "reithalle-banner",
+    "alt": "Blick durch die Reithalle mit Dachfenstern und Holzbande",
+    "use": "Archiv: neue Hallenaufnahme bevorzugen",
+    "restored": "assets/photos-restored/reithalle-banner.webp"
+  },
+  {
+    "source": "src/seed/images/header-6.jpg",
+    "name": "hofhund",
+    "alt": "Brauner Hofhund auf einer Wiese mit gelben Blüten",
+    "use": "Archiv: Hofleben, kein Anlagenbild",
+    "restored": "assets/photos-restored/hofhund.webp"
+  },
+  {
+    "source": "src/seed/images/header-7.jpg",
+    "name": "paddockboxen-banner",
+    "alt": "Reihe von Stallboxen mit vorgelagerten Paddocks",
+    "use": "Archiv: neue Paddockaufnahme bevorzugen",
+    "restored": "assets/photos-restored/paddockboxen-banner.webp"
+  },
+  {
+    "source": "src/seed/images/header-8.jpg",
+    "name": "dressur-reithalle",
+    "alt": "Reiterin auf einem braunen Pferd bei der Arbeit in der Reithalle",
+    "use": "Ausbildung: vorhandenes Banner",
+    "restored": "assets/photos-restored/dressur-reithalle.webp"
+  },
+  {
+    "source": "src/seed/images/header-9.jpg",
+    "name": "dressurgemaelde",
+    "alt": "Gemälde mit Dressurpferden und Reitern vor unscharfem Hintergrund",
+    "use": "Archiv: Kunstwerk, nicht als Foto der Anlage",
+    "restorationReview": "GPT Image variant rejected: changed brushwork and signature. Original artwork retained; compression only."
+  }
+]

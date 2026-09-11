@@ -8,10 +8,7 @@ import React from 'react'
 
 import type { Props as MediaProps } from '../types'
 
-import { cssVariables } from '@/cssVariables'
 import { getMediaUrl } from '@/utilities/getMediaUrl'
-
-const { breakpoints } = cssVariables
 
 // A base64 encoded image to use as a placeholder while the image is loading
 const placeholderBlur =
@@ -75,17 +72,17 @@ export const ImageMedia: React.FC<MediaProps> = (props) => {
     src = getMediaUrl(url, cacheTag)
   }
 
-  const loading = loadingFromProps || (!priority ? 'lazy' : undefined)
+  const loading = priority ? undefined : loadingFromProps || 'lazy'
 
-  // NOTE: this is used by the browser to determine which image to download at different screen sizes
-  const sizes = sizeFromProps
-    ? sizeFromProps
-    : Object.entries(breakpoints)
-        .map(([, value]) => `(max-width: ${value}px) ${value * 2}w`)
-        .join(', ')
+  // sizes uses CSS lengths (vw/px), not srcset's `w` descriptors.
+  const sizes = sizeFromProps || '100vw'
+  const objectPosition =
+    resource && typeof resource === 'object'
+      ? `${resource.focalX ?? 50}% ${resource.focalY ?? 50}%`
+      : undefined
 
   return (
-    <picture className={cn({ "absolute inset-0": fill }, pictureClassName)}>
+    <picture className={cn({ 'absolute inset-0': fill }, pictureClassName)}>
       <NextImage
         alt={alt || ''}
         className={cn(imgClassName)}
@@ -93,7 +90,8 @@ export const ImageMedia: React.FC<MediaProps> = (props) => {
         height={!fill ? height : undefined}
         placeholder="blur"
         blurDataURL={placeholderBlur}
-        priority={priority}
+        preload={priority}
+        style={objectPosition ? { objectPosition } : undefined}
         quality={85}
         loading={loading}
         sizes={sizes}

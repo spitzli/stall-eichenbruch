@@ -1,0 +1,828 @@
+[
+  {
+    "source": "Photos/18931.jpg",
+    "name": "stallgasse",
+    "alt": "Stallgasse mit Pferdeboxen auf beiden Seiten",
+    "use": "Galerie: Stall und Boxen",
+    "restored": "assets/photos-restored/stallgasse.webp",
+    "processing": "GPT Image restoration via Codex built-in image_gen; reviewed against original. Web encoding: orientation, sRGB, source-bounded resize, compression.",
+    "inputSha256": "d8c214ad2fc4d88b0f4c89d8682823ddcc92c9481892f7ba8c9141c4ddafd98d",
+    "original": {
+      "width": 1536,
+      "height": 864,
+      "bytes": 270528,
+      "sha256": "3865c57924f6aa01426c7cabddfa5d0ab9d69e5859d5d4e24452c94319a7d492"
+    },
+    "files": [
+      {
+        "url": "/images/stall/stallgasse-640.webp",
+        "format": "webp",
+        "width": 640,
+        "height": 360,
+        "bytes": 45466
+      },
+      {
+        "url": "/images/stall/stallgasse-960.webp",
+        "format": "webp",
+        "width": 960,
+        "height": 540,
+        "bytes": 86696
+      },
+      {
+        "url": "/images/stall/stallgasse-1440.webp",
+        "format": "webp",
+        "width": 1440,
+        "height": 811,
+        "bytes": 152680
+      },
+      {
+        "url": "/images/stall/stallgasse.webp",
+        "format": "webp",
+        "width": 1535,
+        "height": 864,
+        "bytes": 164856
+      },
+      {
+        "url": "/images/stall/stallgasse.avif",
+        "format": "avif",
+        "width": 1535,
+        "height": 864,
+        "bytes": 102265
+      }
+    ]
+  },
+  {
+    "source": "Photos/18932.jpg",
+    "name": "stallgasse-hochformat",
+    "alt": "Blick entlang der Stallgasse im Hochformat",
+    "use": "Galerie: Hochformat, Alternative zu stallgasse",
+    "restored": "assets/photos-restored/stallgasse-hochformat.webp",
+    "processing": "GPT Image restoration via Codex built-in image_gen; reviewed against original. Web encoding: orientation, sRGB, source-bounded resize, compression.",
+    "inputSha256": "21779a6196a017c888e41aebbd6fb8df3aa1ab1656690a8dc55c52026e078c93",
+    "original": {
+      "width": 864,
+      "height": 1536,
+      "bytes": 268880,
+      "sha256": "4c943f729678747b6ff8a7d8dd20e6d6f6a027491aa2da0b92bbc6210aa33529"
+    },
+    "files": [
+      {
+        "url": "/images/stall/stallgasse-hochformat-640.webp",
+        "format": "webp",
+        "width": 640,
+        "height": 1137,
+        "bytes": 120020
+      },
+      {
+        "url": "/images/stall/stallgasse-hochformat.webp",
+        "format": "webp",
+        "width": 864,
+        "height": 1535,
+        "bytes": 184792
+      },
+      {
+        "url": "/images/stall/stallgasse-hochformat.avif",
+        "format": "avif",
+        "width": 864,
+        "height": 1535,
+        "bytes": 118519
+      }
+    ]
+  },
+  {
+    "source": "Photos/18933.jpg",
+    "name": "reitplatz",
+    "alt": "Reitplatz mit Sandboden, Einzäunung und Bäumen im Hintergrund",
+    "use": "Galerie: Außenplatz",
+    "restored": "assets/photos-restored/reitplatz.webp",
+    "processing": "GPT Image restoration via Codex built-in image_gen; reviewed against original. Web encoding: orientation, sRGB, source-bounded resize, compression.",
+    "inputSha256": "cc53ea95f26e03dd320de1a16b9c1f1e31e564ece35273bd62bd6a4981a560aa",
+    "original": {
+      "width": 1536,
+      "height": 864,
+      "bytes": 328455,
+      "sha256": "84e94d28a94207106ec28c2ab83a1ee5cf397a9ea030380aadb28771d94a348f"
+    },
+    "files": [
+      {
+        "url": "/images/stall/reitplatz-640.webp",
+        "format": "webp",
+        "width": 640,
+        "height": 360,
+        "bytes": 68284
+      },
+      {
+        "url": "/images/stall/reitplatz-960.webp",
+        "format": "webp",
+        "width": 960,
+        "height": 540,
+        "bytes": 148424
+      },
+      {
+        "url": "/images/stall/reitplatz-1440.webp",
+        "format": "webp",
+        "width": 1440,
+        "height": 811,
+        "bytes": 275564
+      },
+      {
+        "url": "/images/stall/reitplatz.webp",
+        "format": "webp",
+        "width": 1535,
+        "height": 864,
+        "bytes": 299906
+      },
+      {
+        "url": "/images/stall/reitplatz.avif",
+        "format": "avif",
+        "width": 1535,
+        "height": 864,
+        "bytes": 203428
+      }
+    ]
+  },
+  {
+    "source": "Photos/18934.jpg",
+    "name": "cora-guenter-mit-hunden",
+    "alt": "Cora und Günter Mann mit zwei Hunden auf einer Gartenbank",
+    "use": "Archiv: Porträt, nicht als Anlagenbild",
+    "restored": "assets/photos-restored/cora-guenter-mit-hunden.webp",
+    "processing": "GPT Image restoration via Codex built-in image_gen; reviewed against original. Web encoding: orientation, sRGB, source-bounded resize, compression.",
+    "inputSha256": "ba2e85dd5fbb86f75d7c6a241ee6eb78d963102d180d4f2e6e99ed5a9a97a4dc",
+    "original": {
+      "width": 864,
+      "height": 1536,
+      "bytes": 212343,
+      "sha256": "92ca520bb1b3c6eb930de2f4b7c67779fdcd1ef38456c71efc5dfc3014b02336"
+    },
+    "files": [
+      {
+        "url": "/images/stall/cora-guenter-mit-hunden-640.webp",
+        "format": "webp",
+        "width": 640,
+        "height": 1137,
+        "bytes": 112914
+      },
+      {
+        "url": "/images/stall/cora-guenter-mit-hunden.webp",
+        "format": "webp",
+        "width": 864,
+        "height": 1535,
+        "bytes": 154352
+      },
+      {
+        "url": "/images/stall/cora-guenter-mit-hunden.avif",
+        "format": "avif",
+        "width": 864,
+        "height": 1535,
+        "bytes": 103537
+      }
+    ]
+  },
+  {
+    "source": "Photos/18935.jpg",
+    "name": "reithalle",
+    "alt": "Innenansicht der Reithalle mit Reitboden, Bande und Dachbalken",
+    "use": "Hero oder Galerie: Reithalle",
+    "restored": "assets/photos-restored/reithalle.webp",
+    "processing": "GPT Image restoration via Codex built-in image_gen; reviewed against original. Web encoding: orientation, sRGB, source-bounded resize, compression.",
+    "inputSha256": "e42f183fb31c70693f8f1d51cb6812b12dad8f9a32bed6f7dbaa698aa64165d6",
+    "original": {
+      "width": 1536,
+      "height": 864,
+      "bytes": 334896,
+      "sha256": "91c3064ae03a598221afb6cc9a4df3414dc3a44f08e78dd6eb3df20af32c9da7"
+    },
+    "files": [
+      {
+        "url": "/images/stall/reithalle-640.webp",
+        "format": "webp",
+        "width": 640,
+        "height": 360,
+        "bytes": 54472
+      },
+      {
+        "url": "/images/stall/reithalle-960.webp",
+        "format": "webp",
+        "width": 960,
+        "height": 540,
+        "bytes": 114756
+      },
+      {
+        "url": "/images/stall/reithalle-1440.webp",
+        "format": "webp",
+        "width": 1440,
+        "height": 811,
+        "bytes": 209958
+      },
+      {
+        "url": "/images/stall/reithalle.webp",
+        "format": "webp",
+        "width": 1535,
+        "height": 864,
+        "bytes": 228216
+      },
+      {
+        "url": "/images/stall/reithalle.avif",
+        "format": "avif",
+        "width": 1535,
+        "height": 864,
+        "bytes": 150676
+      }
+    ]
+  },
+  {
+    "source": "Photos/18936.jpg",
+    "name": "reitplatz-terrasse",
+    "alt": "Blick von der Terrasse mit Sitzplätzen auf den Reitplatz",
+    "use": "Hero oder Galerie: Außenplatz",
+    "restored": "assets/photos-restored/reitplatz-terrasse.webp",
+    "processing": "GPT Image restoration via Codex built-in image_gen; reviewed against original. Web encoding: orientation, sRGB, source-bounded resize, compression.",
+    "inputSha256": "791aa9a981a5b66b033a5cf4f5a8e54f4f596fe5d2cd381738e42211c36a59a4",
+    "original": {
+      "width": 1536,
+      "height": 1153,
+      "bytes": 443094,
+      "sha256": "34b2b964c10e5c9d5735cfdefd0feb976da5da6b5bbb6f1d05f1764a0a7a67c3"
+    },
+    "files": [
+      {
+        "url": "/images/stall/reitplatz-terrasse-640.webp",
+        "format": "webp",
+        "width": 640,
+        "height": 481,
+        "bytes": 73124
+      },
+      {
+        "url": "/images/stall/reitplatz-terrasse-960.webp",
+        "format": "webp",
+        "width": 960,
+        "height": 721,
+        "bytes": 150216
+      },
+      {
+        "url": "/images/stall/reitplatz-terrasse-1440.webp",
+        "format": "webp",
+        "width": 1440,
+        "height": 1082,
+        "bytes": 281074
+      },
+      {
+        "url": "/images/stall/reitplatz-terrasse.webp",
+        "format": "webp",
+        "width": 1447,
+        "height": 1087,
+        "bytes": 285610
+      },
+      {
+        "url": "/images/stall/reitplatz-terrasse.avif",
+        "format": "avif",
+        "width": 1447,
+        "height": 1087,
+        "bytes": 203466
+      }
+    ]
+  },
+  {
+    "source": "Photos/18937.jpg",
+    "name": "paddockboxen",
+    "alt": "Pferde in eingezäunten Paddocks vor den Stallboxen",
+    "use": "Hero Pension oder Galerie: Paddocks",
+    "restored": "assets/photos-restored/paddockboxen.webp",
+    "processing": "GPT Image restoration via Codex built-in image_gen; reviewed against original. Web encoding: orientation, sRGB, source-bounded resize, compression.",
+    "inputSha256": "75083a8323fa5798d25e96e18e0a5965daac93b4d20bdf286ce21baa74901884",
+    "original": {
+      "width": 1536,
+      "height": 1152,
+      "bytes": 390765,
+      "sha256": "d0ef6202b779463ce30531f40999f6bb169c66d2aec2f6c5435ddf65abb8b0a1"
+    },
+    "files": [
+      {
+        "url": "/images/stall/paddockboxen-640.webp",
+        "format": "webp",
+        "width": 640,
+        "height": 480,
+        "bytes": 66806
+      },
+      {
+        "url": "/images/stall/paddockboxen-960.webp",
+        "format": "webp",
+        "width": 960,
+        "height": 720,
+        "bytes": 133752
+      },
+      {
+        "url": "/images/stall/paddockboxen-1440.webp",
+        "format": "webp",
+        "width": 1440,
+        "height": 1080,
+        "bytes": 237194
+      },
+      {
+        "url": "/images/stall/paddockboxen.webp",
+        "format": "webp",
+        "width": 1448,
+        "height": 1086,
+        "bytes": 241158
+      },
+      {
+        "url": "/images/stall/paddockboxen.avif",
+        "format": "avif",
+        "width": 1448,
+        "height": 1086,
+        "bytes": 172036
+      }
+    ]
+  },
+  {
+    "source": "Photos/18938.jpg",
+    "name": "longierzelt",
+    "alt": "Überdachter Longierplatz mit einem Pferd und zwei Personen unter dem Zeltdach",
+    "use": "Galerie: Longierplatz mit Zelt",
+    "restored": "assets/photos-restored/longierzelt.webp",
+    "processing": "GPT Image restoration via Codex built-in image_gen; reviewed against original. Web encoding: orientation, sRGB, source-bounded resize, compression.",
+    "inputSha256": "511b7d1af0bd1a6791d266ec0d08ff325ff6214ccd591058b9f184880f465788",
+    "original": {
+      "width": 1536,
+      "height": 1152,
+      "bytes": 500146,
+      "sha256": "d3b13312daeb10d617d7d9924571ea5a241a4ac0753ad14651d4077f54bdb655"
+    },
+    "files": [
+      {
+        "url": "/images/stall/longierzelt-640.webp",
+        "format": "webp",
+        "width": 640,
+        "height": 480,
+        "bytes": 85994
+      },
+      {
+        "url": "/images/stall/longierzelt-960.webp",
+        "format": "webp",
+        "width": 960,
+        "height": 720,
+        "bytes": 181656
+      },
+      {
+        "url": "/images/stall/longierzelt-1440.webp",
+        "format": "webp",
+        "width": 1440,
+        "height": 1080,
+        "bytes": 353506
+      },
+      {
+        "url": "/images/stall/longierzelt.webp",
+        "format": "webp",
+        "width": 1448,
+        "height": 1086,
+        "bytes": 357596
+      },
+      {
+        "url": "/images/stall/longierzelt.avif",
+        "format": "avif",
+        "width": 1448,
+        "height": 1086,
+        "bytes": 246682
+      }
+    ]
+  },
+  {
+    "source": "src/seed/images/cora-guenter.jpg",
+    "name": "cora-guenter-archiv",
+    "alt": "Cora und Günter Mann mit Hunden im Garten",
+    "use": "Archiv: niedrig aufgelöst, neues Porträt bevorzugen",
+    "restored": "assets/photos-restored/cora-guenter-archiv.webp",
+    "processing": "GPT Image restoration via Codex built-in image_gen; reviewed against original. Web encoding: orientation, sRGB, source-bounded resize, compression.",
+    "inputSha256": "d192faec407ef84cd0fa4ee2d3248f3166b753bdff7c5cb5306cf4d579d85c6c",
+    "original": {
+      "width": 267,
+      "height": 400,
+      "bytes": 57870,
+      "sha256": "acb0d9730925af32a008352e992ec2f4209d4c675e338a947d8e02faf66047e4"
+    },
+    "files": [
+      {
+        "url": "/images/stall/cora-guenter-archiv.webp",
+        "format": "webp",
+        "width": 267,
+        "height": 400,
+        "bytes": 40812
+      },
+      {
+        "url": "/images/stall/cora-guenter-archiv.avif",
+        "format": "avif",
+        "width": 267,
+        "height": 400,
+        "bytes": 35327
+      }
+    ]
+  },
+  {
+    "source": "src/seed/images/header-1.jpg",
+    "name": "boxenfenster",
+    "alt": "Pferd an einem geöffneten Boxenfenster in der Backsteinwand",
+    "use": "Galerie: Boxen",
+    "restored": "assets/photos-restored/boxenfenster.webp",
+    "processing": "GPT Image restoration via Codex built-in image_gen; reviewed against original. Web encoding: orientation, sRGB, source-bounded resize, compression.",
+    "inputSha256": "d804eacbbdc320096ae754601293a617a98dd15fe243e4e0d5a44f9e4c06e38d",
+    "original": {
+      "width": 1200,
+      "height": 400,
+      "bytes": 120185,
+      "sha256": "e985b66dbf8caa6359db64cebc606bb69acab30926af4d78f06c00aad9c03b6c"
+    },
+    "files": [
+      {
+        "url": "/images/stall/boxenfenster-640.webp",
+        "format": "webp",
+        "width": 640,
+        "height": 213,
+        "bytes": 29880
+      },
+      {
+        "url": "/images/stall/boxenfenster-960.webp",
+        "format": "webp",
+        "width": 960,
+        "height": 320,
+        "bytes": 55790
+      },
+      {
+        "url": "/images/stall/boxenfenster.webp",
+        "format": "webp",
+        "width": 1200,
+        "height": 400,
+        "bytes": 79496
+      },
+      {
+        "url": "/images/stall/boxenfenster.avif",
+        "format": "avif",
+        "width": 1200,
+        "height": 400,
+        "bytes": 56286
+      }
+    ]
+  },
+  {
+    "source": "src/seed/images/header-2.jpg",
+    "name": "dressur-aussenplatz",
+    "alt": "Reiterin auf einem Pferd bei der Dressurarbeit auf dem Außenplatz",
+    "use": "Ausbildung: vorhandenes Banner",
+    "restored": "assets/photos-restored/dressur-aussenplatz.webp",
+    "processing": "GPT Image restoration via Codex built-in image_gen; reviewed against original. Web encoding: orientation, sRGB, source-bounded resize, compression.",
+    "inputSha256": "7175f9c9c6ff2e8f1d35e28ef87bf58658b68aca01ad89e5f61db4bf816330ac",
+    "original": {
+      "width": 1200,
+      "height": 400,
+      "bytes": 171390,
+      "sha256": "750ac34ca68862f1323b158e41e10920d0d8728003c78e56c4b35ecdcfffaa03"
+    },
+    "files": [
+      {
+        "url": "/images/stall/dressur-aussenplatz-640.webp",
+        "format": "webp",
+        "width": 640,
+        "height": 213,
+        "bytes": 57724
+      },
+      {
+        "url": "/images/stall/dressur-aussenplatz-960.webp",
+        "format": "webp",
+        "width": 960,
+        "height": 320,
+        "bytes": 115094
+      },
+      {
+        "url": "/images/stall/dressur-aussenplatz.webp",
+        "format": "webp",
+        "width": 1200,
+        "height": 400,
+        "bytes": 163878
+      },
+      {
+        "url": "/images/stall/dressur-aussenplatz.avif",
+        "format": "avif",
+        "width": 1200,
+        "height": 400,
+        "bytes": 130903
+      }
+    ]
+  },
+  {
+    "source": "src/seed/images/header-3.jpg",
+    "name": "cora-guenter-banner",
+    "alt": "Bildmontage von Cora und Günter Mann mit ihren Hunden",
+    "use": "Archiv: vorhandene Montage, kein Anlagen-Hero",
+    "restored": "assets/photos-restored/cora-guenter-banner.webp",
+    "processing": "GPT Image restoration via Codex built-in image_gen; reviewed against original. Web encoding: orientation, sRGB, source-bounded resize, compression.",
+    "inputSha256": "511693a7e8f3f6c9e3f59fb8d1c0fb344bb6c04fb70ced65dd3326cf22ae8afc",
+    "original": {
+      "width": 1200,
+      "height": 400,
+      "bytes": 114857,
+      "sha256": "66cbe3536bdd340b6ea6ed694870bf4c30d8b47eb36fdb6572598bf5a2a68f23"
+    },
+    "files": [
+      {
+        "url": "/images/stall/cora-guenter-banner-640.webp",
+        "format": "webp",
+        "width": 640,
+        "height": 213,
+        "bytes": 43374
+      },
+      {
+        "url": "/images/stall/cora-guenter-banner-960.webp",
+        "format": "webp",
+        "width": 960,
+        "height": 320,
+        "bytes": 77972
+      },
+      {
+        "url": "/images/stall/cora-guenter-banner.webp",
+        "format": "webp",
+        "width": 1200,
+        "height": 400,
+        "bytes": 108586
+      },
+      {
+        "url": "/images/stall/cora-guenter-banner.avif",
+        "format": "avif",
+        "width": 1200,
+        "height": 400,
+        "bytes": 84828
+      }
+    ]
+  },
+  {
+    "source": "src/seed/images/header-4.jpg",
+    "name": "stall-eichenbruch-gebaeude",
+    "focalX": 90,
+    "focalY": 50,
+    "alt": "Stallgebäude mit dem Schriftzug Stall Eichenbruch",
+    "use": "Hero Startseite: vorhandenes Banner",
+    "restored": "assets/photos-restored/stall-eichenbruch-gebaeude.webp",
+    "processing": "GPT Image restoration via Codex built-in image_gen; reviewed against original. Web encoding: orientation, sRGB, source-bounded resize, compression.",
+    "inputSha256": "3df2d486eaa49e075458b3988ffa64716d1a43033cf77b840a04f9d20c20819b",
+    "original": {
+      "width": 1200,
+      "height": 400,
+      "bytes": 164939,
+      "sha256": "558f662e167b66d9b95c4d54c3fea13543e284f2cedb3ee581668a1ed171c8ba"
+    },
+    "files": [
+      {
+        "url": "/images/stall/stall-eichenbruch-gebaeude-640.webp",
+        "format": "webp",
+        "width": 640,
+        "height": 213,
+        "bytes": 38934
+      },
+      {
+        "url": "/images/stall/stall-eichenbruch-gebaeude-960.webp",
+        "format": "webp",
+        "width": 960,
+        "height": 320,
+        "bytes": 78470
+      },
+      {
+        "url": "/images/stall/stall-eichenbruch-gebaeude.webp",
+        "format": "webp",
+        "width": 1200,
+        "height": 400,
+        "bytes": 113304
+      },
+      {
+        "url": "/images/stall/stall-eichenbruch-gebaeude.avif",
+        "format": "avif",
+        "width": 1200,
+        "height": 400,
+        "bytes": 88505
+      }
+    ]
+  },
+  {
+    "source": "src/seed/images/header-5.jpg",
+    "name": "reithalle-banner",
+    "alt": "Blick durch die Reithalle mit Dachfenstern und Holzbande",
+    "use": "Archiv: neue Hallenaufnahme bevorzugen",
+    "restored": "assets/photos-restored/reithalle-banner.webp",
+    "processing": "GPT Image restoration via Codex built-in image_gen; reviewed against original. Web encoding: orientation, sRGB, source-bounded resize, compression.",
+    "inputSha256": "9812ab791c60fde5dd186d2d9ff82e4fd57182764818e13a1add1554d16f948d",
+    "original": {
+      "width": 1200,
+      "height": 400,
+      "bytes": 92499,
+      "sha256": "bd64ad7712bc0b2247721ad832894f61cea4eb7f0f09133ba154ead3d59be253"
+    },
+    "files": [
+      {
+        "url": "/images/stall/reithalle-banner-640.webp",
+        "format": "webp",
+        "width": 640,
+        "height": 213,
+        "bytes": 26056
+      },
+      {
+        "url": "/images/stall/reithalle-banner-960.webp",
+        "format": "webp",
+        "width": 960,
+        "height": 320,
+        "bytes": 48356
+      },
+      {
+        "url": "/images/stall/reithalle-banner.webp",
+        "format": "webp",
+        "width": 1200,
+        "height": 400,
+        "bytes": 70248
+      },
+      {
+        "url": "/images/stall/reithalle-banner.avif",
+        "format": "avif",
+        "width": 1200,
+        "height": 400,
+        "bytes": 47805
+      }
+    ]
+  },
+  {
+    "source": "src/seed/images/header-6.jpg",
+    "name": "hofhund",
+    "alt": "Brauner Hofhund auf einer Wiese mit gelben Blüten",
+    "use": "Archiv: Hofleben, kein Anlagenbild",
+    "restored": "assets/photos-restored/hofhund.webp",
+    "processing": "GPT Image restoration via Codex built-in image_gen; reviewed against original. Web encoding: orientation, sRGB, source-bounded resize, compression.",
+    "inputSha256": "20bc799e914d7453fc06528a92a177c916114b49c4b9a81757001e33d265dc1a",
+    "original": {
+      "width": 1200,
+      "height": 400,
+      "bytes": 69390,
+      "sha256": "e9a3f229eca1c6287197bb7735c2b3ada239964a8bd23381da56b938df82c008"
+    },
+    "files": [
+      {
+        "url": "/images/stall/hofhund-640.webp",
+        "format": "webp",
+        "width": 640,
+        "height": 213,
+        "bytes": 29498
+      },
+      {
+        "url": "/images/stall/hofhund-960.webp",
+        "format": "webp",
+        "width": 960,
+        "height": 320,
+        "bytes": 50764
+      },
+      {
+        "url": "/images/stall/hofhund.webp",
+        "format": "webp",
+        "width": 1200,
+        "height": 400,
+        "bytes": 70696
+      },
+      {
+        "url": "/images/stall/hofhund.avif",
+        "format": "avif",
+        "width": 1200,
+        "height": 400,
+        "bytes": 47543
+      }
+    ]
+  },
+  {
+    "source": "src/seed/images/header-7.jpg",
+    "name": "paddockboxen-banner",
+    "alt": "Reihe von Stallboxen mit vorgelagerten Paddocks",
+    "use": "Archiv: neue Paddockaufnahme bevorzugen",
+    "restored": "assets/photos-restored/paddockboxen-banner.webp",
+    "processing": "GPT Image restoration via Codex built-in image_gen; reviewed against original. Web encoding: orientation, sRGB, source-bounded resize, compression.",
+    "inputSha256": "a21db4124bfae00aedcf2631f2f7b16d1d2ecb0b8337b34c849ae0bc03521f44",
+    "original": {
+      "width": 1200,
+      "height": 400,
+      "bytes": 157749,
+      "sha256": "71166d5999b67c1392c2bb98e192bc62a699351d4d92d2b019d1cbd81411df0e"
+    },
+    "files": [
+      {
+        "url": "/images/stall/paddockboxen-banner-640.webp",
+        "format": "webp",
+        "width": 640,
+        "height": 213,
+        "bytes": 39722
+      },
+      {
+        "url": "/images/stall/paddockboxen-banner-960.webp",
+        "format": "webp",
+        "width": 960,
+        "height": 320,
+        "bytes": 78390
+      },
+      {
+        "url": "/images/stall/paddockboxen-banner.webp",
+        "format": "webp",
+        "width": 1200,
+        "height": 400,
+        "bytes": 118332
+      },
+      {
+        "url": "/images/stall/paddockboxen-banner.avif",
+        "format": "avif",
+        "width": 1200,
+        "height": 400,
+        "bytes": 91513
+      }
+    ]
+  },
+  {
+    "source": "src/seed/images/header-8.jpg",
+    "name": "dressur-reithalle",
+    "alt": "Reiterin auf einem braunen Pferd bei der Arbeit in der Reithalle",
+    "use": "Ausbildung: vorhandenes Banner",
+    "restored": "assets/photos-restored/dressur-reithalle.webp",
+    "processing": "GPT Image restoration via Codex built-in image_gen; reviewed against original. Web encoding: orientation, sRGB, source-bounded resize, compression.",
+    "inputSha256": "4616458b7408edb5c4186c08c03902f8fbc3c56ca9409f8cd47a7236ec228d0f",
+    "original": {
+      "width": 1200,
+      "height": 400,
+      "bytes": 55903,
+      "sha256": "3519240f67de0122e48724d0da452fa2c78258e0305a7d939ecfb2b06071c042"
+    },
+    "files": [
+      {
+        "url": "/images/stall/dressur-reithalle-640.webp",
+        "format": "webp",
+        "width": 640,
+        "height": 213,
+        "bytes": 15636
+      },
+      {
+        "url": "/images/stall/dressur-reithalle-960.webp",
+        "format": "webp",
+        "width": 960,
+        "height": 320,
+        "bytes": 27436
+      },
+      {
+        "url": "/images/stall/dressur-reithalle.webp",
+        "format": "webp",
+        "width": 1200,
+        "height": 400,
+        "bytes": 37470
+      },
+      {
+        "url": "/images/stall/dressur-reithalle.avif",
+        "format": "avif",
+        "width": 1200,
+        "height": 400,
+        "bytes": 23281
+      }
+    ]
+  },
+  {
+    "source": "src/seed/images/header-9.jpg",
+    "name": "dressurgemaelde",
+    "alt": "Gemälde mit Dressurpferden und Reitern vor unscharfem Hintergrund",
+    "use": "Archiv: Kunstwerk, nicht als Foto der Anlage",
+    "restorationReview": "GPT Image variant rejected: changed brushwork and signature. Original artwork retained; compression only.",
+    "processing": "Original photo: orientation, sRGB conversion, resizing and compression only. No AI restoration.",
+    "inputSha256": "11c10d83f484edae60e6186e054fa1fd69c7498e0dbc6579d5ed8bdb00ff180d",
+    "original": {
+      "width": 1200,
+      "height": 400,
+      "bytes": 72732,
+      "sha256": "11c10d83f484edae60e6186e054fa1fd69c7498e0dbc6579d5ed8bdb00ff180d"
+    },
+    "files": [
+      {
+        "url": "/images/stall/dressurgemaelde-640.webp",
+        "format": "webp",
+        "width": 640,
+        "height": 213,
+        "bytes": 12874
+      },
+      {
+        "url": "/images/stall/dressurgemaelde-960.webp",
+        "format": "webp",
+        "width": 960,
+        "height": 320,
+        "bytes": 23978
+      },
+      {
+        "url": "/images/stall/dressurgemaelde.webp",
+        "format": "webp",
+        "width": 1200,
+        "height": 400,
+        "bytes": 36000
+      },
+      {
+        "url": "/images/stall/dressurgemaelde.avif",
+        "format": "avif",
+        "width": 1200,
+        "height": 400,
+        "bytes": 24747
+      }
+    ]
+  }
+]

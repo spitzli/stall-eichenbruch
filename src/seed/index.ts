@@ -11,6 +11,7 @@ import type { File, Payload, RequiredDataFromCollectionSlug } from 'payload'
 import { getPayload } from 'payload'
 
 import config from '../payload.config'
+import { representation } from './representation'
 
 const imagesDir = path.join(path.dirname(fileURLToPath(import.meta.url)), 'images')
 
@@ -148,7 +149,7 @@ async function seed(payload: Payload) {
 
   payload.logger.info('Creating pages…')
   const page = (data: RequiredDataFromCollectionSlug<'pages'>) =>
-    payload.create({ collection: 'pages', data: { _status: 'published', ...data }, context: noRevalidate })
+    payload.create({ collection: 'pages', data: { _status: 'published', ...data, ...representation(data) }, context: noRevalidate })
 
   const kontakt = await page({
     title: 'Kontakt',
@@ -377,7 +378,7 @@ async function seed(payload: Payload) {
     context: noRevalidate,
     data: {
       name: 'Stall Eichenbruch',
-      tagline: 'Pensions- und Ausbildungsstall · Unterricht · Beritt · Korrektur · Verkauf',
+      tagline: 'Pensions- und Ausbildungsstall in Rastede-Hankhausen',
       street: 'Emsoldstraße 40',
       city: '26180 Rastede-Hankhausen',
       phone: '04402 5956004',
@@ -394,7 +395,7 @@ async function seed(payload: Payload) {
     context: noRevalidate,
     data: {
       navItems: [
-        navLink(ueberUns.id, 'Wir über uns'),
+        navLink(ueberUns.id, 'Der Stall'),
         navLink(ausbildung.id, 'Ausbildung'),
         navLink(pension.id, 'Pension'),
         navLink(kontakt.id, 'Kontakt'),

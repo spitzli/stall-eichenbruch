@@ -14,6 +14,17 @@ bun run seed           # content + admin user (admin@stall-eichenbruch.de / pass
 
 After changing collections, blocks or globals: `bun run generate:types`.
 
+## Photo workflow
+
+Original photos stay in `Photos/` and `src/seed/images/`; reviewed GPT Image masters are in `assets/photos-restored/`. The source list, alt text and focal points live in `scripts/photos.json`.
+
+```bash
+node scripts/prepare-photos.mjs                       # WebP/AVIF + manifest, originals untouched
+bun run payload run src/seed/update-photos.ts         # import to Blob/CMS, update photo slots
+```
+
+The import requires Blob storage, retains old media and backs up affected CMS data under the ignored `.backups/` directory. It refuses to overwrite unpublished edits on the target pages. Redeploy after importing to refresh Next.js caches. Run the import after a fresh development seed too; do not re-seed an existing database to change its photos. Details: [docs/photos.md](docs/photos.md).
+
 ## Deployment
 
 Vercel project `spitzli/stall-eichenbruch`, auto-deploys from GitHub `main` (production) and PR branches (preview). Env: `POSTGRES_URL` (Neon integration), `BLOB_READ_WRITE_TOKEN` (Blob store `stall-eichenbruch-media`), `PAYLOAD_SECRET`, `PREVIEW_SECRET`, `CRON_SECRET`. `SITE_URL` is the canonical site URL (`https://www.stall-eichenbruch.de` in production); previews fall back to `VERCEL_PROJECT_PRODUCTION_URL`. Pull env locally with `bunx vercel env pull`.
