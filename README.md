@@ -23,6 +23,8 @@ node scripts/prepare-photos.mjs                       # WebP/AVIF + manifest, or
 bun run payload run src/seed/update-photos.ts         # import to Blob/CMS, update photo slots
 ```
 
+For the confirmed Longierhalle/Solebox/own-horse training updates and the replaceable Führmaschine photo placeholder, run `node scripts/prepare-placeholders.mjs` and then `NODE_ENV=production bun run payload run src/seed/update-owner-corrections.ts`. This preserves unrelated CMS content and legal drafts.
+
 The import requires Blob storage, retains old media and backs up affected CMS data under the ignored `.backups/` directory. It refuses to overwrite unpublished edits on the target pages. Redeploy after importing to refresh Next.js caches. Run the import after a fresh development seed too; do not re-seed an existing database to change its photos. Details: [docs/photos.md](docs/photos.md).
 
 ## Deployment

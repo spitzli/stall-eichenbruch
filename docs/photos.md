@@ -27,12 +27,27 @@ Der zweite Befehl importiert die vollen WebP-Dateien nach Payload/Vercel Blob, n
 
 ## Auswahl auf den Seiten
 
-- **Startseite:** Stallgebäude als Hero; Reithalle, Reitplatz, Longierzelt, Stallgasse, Paddocks und Terrasse in der Galerie.
+- **Startseite:** Stallgebäude als Hero; Reithalle, Reitplatz, Longierhalle, Stallgasse, Paddocks und Terrasse in der Galerie, ergänzt um den Führmaschinen-Fotoplatzhalter.
 - **Pension:** neue Paddockaufnahme als Hero; Stallgasse, Boxenfenster, Paddocks und Hochformat-Ansicht.
-- **Der Stall:** Reitplatz mit Terrasse als Hero; Halle, Reitplatz, Longierzelt und Paddocks.
+- **Der Stall:** Reitplatz mit Terrasse als Hero; Halle, Reitplatz, Longierhalle, Paddocks und derselbe Führmaschinen-Fotoplatzhalter.
 - **Ausbildung:** Dressur auf dem Außenplatz als Hero; Dressur in der Halle, neue Hallenaufnahme und Außenplatz.
 
 Porträts und Hofhund bleiben in der Mediathek, stehen aber nicht in den Anlagen-Galerien. Keine der neuen Aufnahmen zeigt eindeutig eine separate Führmaschine oder Weide; andere Motive werden nicht als solche beschriftet. Der Bildfokus des Stallgebäudes liegt rechts, damit der Schriftzug auch beim mobilen Hero-Beschnitt sichtbar bleibt.
+
+## Bestätigte Ausstattung und Führmaschinen-Foto
+
+Die Longierhalle hat Swingground; die Anlage verfügt außerdem über eine Solebox. Der interne Bildname `longierzelt` bleibt für bestehende Dateiverweise erhalten, der sichtbare Alt-Text lautet jetzt „Longierhalle mit Swingground …“.
+
+Der neutrale Führmaschinen-Platzhalter zeigt nur ein Kamerasymbol und „Foto folgt“, keine erfundene Anlage. Er liegt separat von den 18 Originalmotiven:
+
+- Quelle: `assets/placeholders/fuehrmaschine.svg`
+- Web-Datei: `public/images/stall/fuehrmaschine-platzhalter.webp`
+- Erzeugen: `node scripts/prepare-placeholders.mjs`
+- Gezielt ins CMS übernehmen: `NODE_ENV=production bun run payload run src/seed/update-owner-corrections.ts`
+
+**Später ersetzen:** In Payload → Medien den Eintrag `fuehrmaschine-platzhalter.webp` öffnen, im selben Eintrag die Datei ersetzen und den Alt-Text an das echte Foto anpassen (z. B. „Überdachte Führmaschine“). Nicht löschen und neu anlegen: Startseite und „Der Stall“ verweisen auf dieselbe Medien-ID. Die Media-Hooks invalidieren nach dem Speichern den Seitencache, sobald die Codeänderung deployed ist. Die CLI-Skripte unterdrücken diese Next.js-Hooks weiterhin bewusst.
+
+Wiederholte Korrekturläufe ergänzen keinen zweiten Galerieeintrag und überschreiben kein vorhandenes echtes Führmaschinen-Foto. Der reguläre Fotoimport erhält einen über den Alt-Text erkannten Führmaschinen-Eintrag ebenfalls in beiden Galerien.
 
 ## Restaurierungsauftrag und Grenzen
 

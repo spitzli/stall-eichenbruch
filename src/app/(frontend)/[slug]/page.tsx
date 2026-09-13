@@ -12,6 +12,7 @@ import { RenderBlocks } from '@/blocks/RenderBlocks'
 import { RenderHero } from '@/heros/RenderHero'
 import { generateMeta } from '@/utilities/generateMeta'
 import { LivePreviewListener } from '@/components/LivePreviewListener'
+import { LegalDocument } from '@/components/LegalDocument'
 
 export async function generateStaticParams() {
   const payload = await getPayload({ config: configPromise })
@@ -60,15 +61,23 @@ export default async function Page({ params: paramsPromise }: Args) {
     <main className="pt-2 pb-16 md:pb-24">
       {maintenance === 'bypass' && (
         <p className="container mb-4 text-sm text-muted-foreground">
-          <span className="inline-block rounded-md bg-hay/60 px-2 py-0.5 text-foreground">Vorschau</span>{' '}
+          <span className="inline-block rounded-md bg-hay/60 px-2 py-0.5 text-foreground">
+            Vorschau
+          </span>{' '}
           Wartungsmodus ist aktiv – Besucher sehen diese Seite nicht.
         </p>
       )}
       <PayloadRedirects disableNotFound url={url} />
       {draft && <LivePreviewListener />}
 
-      <RenderHero {...hero} />
-      <RenderBlocks blocks={layout} />
+      {decodedSlug === 'datenschutz' ? (
+        <LegalDocument hero={hero} blocks={layout} isDraft={page._status === 'draft'} />
+      ) : (
+        <>
+          <RenderHero {...hero} />
+          <RenderBlocks blocks={layout} />
+        </>
+      )}
     </main>
   )
 }

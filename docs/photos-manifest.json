@@ -338,8 +338,8 @@
   {
     "source": "Photos/18938.jpg",
     "name": "longierzelt",
-    "alt": "Überdachter Longierplatz mit einem Pferd und zwei Personen unter dem Zeltdach",
-    "use": "Galerie: Longierplatz mit Zelt",
+    "alt": "Longierhalle mit Swingground, einem Pferd und zwei Personen unter dem Zeltdach",
+    "use": "Galerie: Longierhalle mit Swingground",
     "restored": "assets/photos-restored/longierzelt.webp",
     "processing": "GPT Image restoration via Codex built-in image_gen; reviewed against original. Web encoding: orientation, sRGB, source-bounded resize, compression.",
     "inputSha256": "511b7d1af0bd1a6791d266ec0d08ff325ff6214ccd591058b9f184880f465788",

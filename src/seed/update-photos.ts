@@ -7,33 +7,16 @@ import { createHash } from 'node:crypto'
 import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import path from 'node:path'
 import { getPayload } from 'payload'
-import { BlobNotFoundError, head } from '@vercel/blob'
 import config from '../payload.config'
-import type { Media, Page } from '../payload-types'
+import type { Page } from '../payload-types'
 import { applyPhotoPlacement } from './photo-placement'
+import { filesStored } from './media-storage'
+import { appendWalkerPhoto, findWalkerPhoto } from './owner-corrections'
 
 const payload = await getPayload({ config })
 assert(process.env.BLOB_READ_WRITE_TOKEN, 'Blob storage is required; refusing local-only uploads.')
 // Cloud-storage hooks mutate req.context; never share one object between operations.
 const context = () => ({ disableRevalidate: true })
-async function filesStored(media: Media): Promise<boolean> {
-  const filenames = [
-    media.filename,
-    ...Object.values(media.sizes || {}).map((size) => size?.filename),
-  ].filter((name): name is string => Boolean(name))
-  const present = await Promise.all(
-    filenames.map(async (filename) => {
-      try {
-        await head(filename, { token: process.env.BLOB_READ_WRITE_TOKEN })
-        return true
-      } catch (error) {
-        if (error instanceof BlobNotFoundError) return false
-        throw error
-      }
-    }),
-  )
-  return present.length > 0 && present.every(Boolean)
-}
 const manifest: {
   source: string
   name: string
@@ -119,7 +102,7 @@ for (const page of pages) {
       return block
     }),
   }
-  const placed = applyPhotoPlacement(updated, ids)
+  const placed = appendWalkerPhoto(applyPhotoPlacement(updated, ids), findWalkerPhoto(media)?.id)
   const { hero, layout, meta } = placed
   await payload.update({
     collection: 'pages',

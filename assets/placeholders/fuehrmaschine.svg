@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
+  <title>Führmaschine – Foto folgt</title>
+  <desc>Neutraler Fotoplatzhalter, keine Darstellung der tatsächlichen Führmaschine.</desc>
+  <rect width="1200" height="900" fill="#f4f6f2"/>
+  <rect x="48" y="48" width="1104" height="804" rx="28" fill="none" stroke="#dce2da" stroke-width="3"/>
+  <g fill="none" stroke="#5f6b62" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M552 300l16-28h64l16 28h42a14 14 0 0 1 14 14v102a14 14 0 0 1-14 14H510a14 14 0 0 1-14-14V314a14 14 0 0 1 14-14z"/>
+    <circle cx="600" cy="362" r="36"/>
+  </g>
+  <text x="600" y="552" text-anchor="middle" fill="#17251c" font-family="DejaVu Sans, sans-serif" font-size="76">Führmaschine</text>
+  <text x="600" y="632" text-anchor="middle" fill="#5f6b62" font-family="DejaVu Sans, sans-serif" font-size="46">Foto folgt</text>
+</svg>

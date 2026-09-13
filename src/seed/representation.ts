@@ -1,4 +1,5 @@
 import type { Page } from '../payload-types'
+import { applyOwnerCorrections } from './owner-corrections'
 
 type Content = Pick<Page, 'slug' | 'title' | 'hero' | 'layout' | 'meta'>
 
@@ -11,7 +12,7 @@ const facilities: Page['layout'][number] = {
     { label: 'Reitplatz', value: '100 × 45 m' },
     { label: 'Dressurviereck', value: '20 × 60 m' },
     { label: 'Rasenspringplatz', value: '80 × 80 m, drainiert' },
-    { label: 'Longierplatz', value: 'Mit Zeltüberdachung' },
+    { label: 'Longierhalle', value: 'Mit Swingground' },
     { label: 'Führmaschine', value: 'Überdacht, Gummiboden' },
     { label: 'Boxen', value: '40, davon 15 mit Paddock' },
     { label: 'Weiden', value: '5 ha in 20 Parzellen' },
@@ -20,22 +21,15 @@ const facilities: Page['layout'][number] = {
   ],
 }
 
-/** Shared by the initial seed and the non-destructive content update. Media stay in the CMS. */
-export function representation(page: Content): Content {
+function baseRepresentation(page: Content): Content {
   const gallery = page.layout.filter((block) => block.blockType === 'gallery')
   switch (page.slug) {
     case 'home':
       return {
         ...page,
-        meta: {
-          ...page.meta,
-          description:
-            'Stall Eichenbruch in Rastede-Hankhausen: Reithalle, Außenplätze, Longierplatz mit Zelt, überdachte Führmaschine, 40 Boxen und 5 ha Weiden.',
-        },
         hero: {
           ...page.hero,
           title: 'Stall Eichenbruch.',
-          text: 'Pensions- und Ausbildungsstall in Rastede-Hankhausen. Reithalle, Außenplätze, Longierplatz mit Zelt, Führmaschine und Weiden.',
           links: [],
         },
         layout: [
@@ -53,7 +47,6 @@ export function representation(page: Content): Content {
         ...page,
         hero: {
           ...page.hero,
-          text: 'Vollisolierter Stall mit 40 Boxen, davon 15 mit Paddock. Dazu Putz- und Waschplätze mit Solarium sowie 5 Hektar Weiden.',
           links: [],
         },
         layout: [
@@ -74,8 +67,6 @@ export function representation(page: Content): Content {
         meta: {
           ...page.meta,
           title: 'Stall Eichenbruch – Anlage in Rastede-Hankhausen',
-          description:
-            'Cora und Günter Mann führen den Stall Eichenbruch seit 2009 in Rastede-Hankhausen. Überblick über Reithalle, Plätze, Longierzelt, Führmaschine und Weiden.',
         },
         hero: {
           ...page.hero,
@@ -84,35 +75,6 @@ export function representation(page: Content): Content {
           links: [],
         },
         layout: [facilities, ...gallery],
-      }
-    case 'ausbildung':
-      return {
-        ...page,
-        hero: {
-          ...page.hero,
-          text: 'Ausbildung von Reitern und Pferden vom Anfänger bis zur Klasse S. Reitunterricht, Teil- und Vollberitt sowie Korrektur.',
-          links: [],
-        },
-        layout: page.layout.map((block) =>
-          block.blockType === 'services'
-            ? {
-                ...block,
-                heading: 'Ausbildung und Beritt',
-                intro: 'Reitunterricht auf dem eigenen Pferd oder auf einem Schulpferd.',
-                items: [
-                  { title: 'Reitunterricht', text: 'Ausbildung vom Anfänger bis zur Klasse S.' },
-                  {
-                    title: 'Beritt und Korrektur',
-                    text: 'Teil- und Vollberitt sowie Korrektur von Pferden.',
-                  },
-                  {
-                    title: 'Turniervorstellung',
-                    text: 'Vorstellung von Pferden auf Turnieren und Championaten.',
-                  },
-                ],
-              }
-            : block,
-        ),
       }
     case 'kontakt':
       return {
@@ -135,4 +97,9 @@ export function representation(page: Content): Content {
     default:
       return page
   }
+}
+
+/** Shared by initial seed and content updates; subsequent owner corrections stay consistent. */
+export function representation(page: Content): Content {
+  return applyOwnerCorrections(baseRepresentation(page))
 }

@@ -12,6 +12,7 @@ import { getPayload } from 'payload'
 
 import config from '../payload.config'
 import { representation } from './representation'
+import { SITE_DESCRIPTION } from '../utilities/site'
 
 const imagesDir = path.join(path.dirname(fileURLToPath(import.meta.url)), 'images')
 
@@ -75,7 +76,7 @@ const richText = (...lines: string[]): RichText =>
 async function media(payload: Payload, fileName: string, alt: string) {
   const data = await readFile(path.join(imagesDir, fileName))
   const file: File = { name: fileName, data, mimetype: 'image/jpeg', size: data.length }
-  return payload.create({ collection: 'media', data: { alt }, file })
+  return payload.create({ collection: 'media', data: { alt }, file, context: { disableRevalidate: true } })
 }
 
 const link = (page: number, label: string, appearance: 'default' | 'outline' = 'default') => ({
@@ -229,7 +230,7 @@ async function seed(payload: Payload) {
       {
         blockType: 'services',
         heading: 'Unser Angebot',
-        intro: 'Der Reitunterricht wird individuell auf den Reitschüler ausgerichtet – auf dem eigenen Pferd oder auf einem Schulpferd.',
+        intro: 'Ausbildung von Pferd und Reiter ausschließlich mit dem eigenen Pferd. Schulpferde stehen nicht zur Verfügung.',
         items: [
           { title: 'Reitunterricht', text: 'Einzel- und Gruppenunterricht für Reiter aller Stufen, vom ersten Sitzschulung bis zur Vorbereitung auf S-Dressuren.' },
           { title: 'Teilberitt', text: 'Ihr Pferd wird an festen Tagen der Woche von uns geritten – ideal, wenn Sie berufstätig sind oder gezielt an einem Thema arbeiten wollen.' },
@@ -385,8 +386,7 @@ async function seed(payload: Payload) {
       mobile: '01522 8461729',
       email: 'post@stall-eichenbruch.de',
       mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Emsoldstra%C3%9Fe+40+26180+Rastede',
-      description:
-        'Pensions- und Ausbildungsstall in Rastede-Hankhausen bei Oldenburg: 40 Boxen, 15 mit Paddock, Reithalle 45 × 25 m, Reitunterricht bis Klasse S, Beritt, Korrektur und Verkauf.',
+      description: SITE_DESCRIPTION,
       hours: [],
     },
   })

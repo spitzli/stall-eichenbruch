@@ -52,7 +52,8 @@ describe('Photo placement', () => {
   it('representation content is factual and idempotent', () => {
     const result = representation(page)
     expect(result.layout[0].blockType).toBe('facilities')
-    expect(JSON.stringify(result)).toContain('Zeltüberdachung')
+    expect(JSON.stringify(result)).toContain('Swingground')
+    expect(JSON.stringify(result)).toContain('Solebox')
     expect(JSON.stringify(result)).toContain('Führmaschine')
     expect(
       result.layout.some((block) => ['team', 'services', 'cta'].includes(block.blockType)),

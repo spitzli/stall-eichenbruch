@@ -1,4 +1,5 @@
 import type { CollectionConfig } from 'payload'
+import { revalidatePath } from 'next/cache'
 
 import type { Page } from '@/payload-types'
 
@@ -47,6 +48,20 @@ export const Media: CollectionConfig = {
     delete: authenticated,
     read: anyone,
     update: authenticated,
+  },
+  hooks: {
+    afterChange: [
+      ({ doc, req }) => {
+        if (!req.context.disableRevalidate) revalidatePath('/', 'layout')
+        return doc
+      },
+    ],
+    afterDelete: [
+      ({ doc, req }) => {
+        if (!req.context.disableRevalidate) revalidatePath('/', 'layout')
+        return doc
+      },
+    ],
   },
   fields: [
     {
@@ -99,7 +114,14 @@ export const Media: CollectionConfig = {
                 if (!req.user || !data?.id) return undefined
                 const ctx = req.context as { pagesForUsage?: Promise<Page[]> }
                 ctx.pagesForUsage ??= req.payload
-                  .find({ collection: 'pages', depth: 0, draft: true, limit: 500, pagination: false, req })
+                  .find({
+                    collection: 'pages',
+                    depth: 0,
+                    draft: true,
+                    limit: 500,
+                    pagination: false,
+                    req,
+                  })
                   .then((r) => r.docs)
                 return blockUsage(await ctx.pagesForUsage, data.id as number)
               },
